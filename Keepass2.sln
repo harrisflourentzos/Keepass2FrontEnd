@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keepass2", "Keepass2\Keepass2.csproj", "{68B424D0-7BB7-4A5D-B79D-E7D080476FBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68B424D0-7BB7-4A5D-B79D-E7D080476FBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68B424D0-7BB7-4A5D-B79D-E7D080476FBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68B424D0-7BB7-4A5D-B79D-E7D080476FBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68B424D0-7BB7-4A5D-B79D-E7D080476FBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FDCA1FB3-697C-45BA-9D0B-9CB2D13F5555}
+	EndGlobalSection
+EndGlobal
