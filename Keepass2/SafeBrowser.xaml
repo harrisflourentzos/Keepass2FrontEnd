@@ -25,18 +25,18 @@
                      ItemTemplate='{StaticResource Categories}' SelectionChanged="OnCategorySelection">
             </ListBox>
             <StackPanel Orientation="Horizontal">
-                <Button>Delete</Button>
-                <Button>Edit</Button>
+                <Button Click="OnDeleteCategory">Delete</Button>
+                <Button Click="OnEditCategory">Edit</Button>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Column="1">
             <TextBlock>Credentials</TextBlock>
-            <DataGrid x:Name="CredentialsDataGrid"></DataGrid>
+            <DataGrid x:Name="CredentialsDataGrid" IsReadOnly="True"></DataGrid>
             <StackPanel Orientation="Horizontal">
-                <Button>Delete</Button>
-                <Button>Edit</Button>
-                <Button>Copy</Button>
+                <Button Click="OnDeleteCredential">Delete</Button>
+                <Button Click="OnEditCredential">Edit</Button>
+                <Button Click="OnCopyCredential">Copy</Button>
             </StackPanel>
         </StackPanel>
 

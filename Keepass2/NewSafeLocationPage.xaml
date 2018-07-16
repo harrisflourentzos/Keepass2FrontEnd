@@ -1,0 +1,34 @@
+﻿<Page x:Class="Keepass2.NewSafeLocationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Keepass2"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="NewSafeLocationPage">
+
+    <StackPanel Orientation="Vertical">
+        <TextBlock FontSize="24"
+                   Foreground="White">
+            What do you want to name your Safe file?
+        </TextBlock>
+        <TextBox Text="{Binding Mode=OneWayToSource, Path=NewSafeState.Name}"></TextBox>
+        <TextBlock FontSize="24"
+                   Foreground="White">
+            Where do you want your new Safe file to be saved?
+        </TextBlock>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="{Binding Location}">Location</TextBlock>
+            <Button Grid.Column="1"
+                    Click="OnLocationBrowse">Browse</Button>
+
+        </Grid>
+
+    </StackPanel>
+</Page>

@@ -21,7 +21,7 @@ namespace Keepass2
             _safe.AddGroup("Bank");
             _safe.AddGroup("Windows");
 
-            _safe["Internet"].AddRange(new List<Credential>
+            new List<Credential>
             {
                 new Credential("Evernote", "keepass@gmail.com", "password1234", "evernote.com", "notes"),
                 new Credential("Facebook", "keepass@gmail.com", "password1234", "facebook.com", "notes"),
@@ -32,14 +32,14 @@ namespace Keepass2
                 new Credential("Facebook", "keepass@gmail.com", "password1234", "facebook.com", "notes"),
                 new Credential("Facebook", "keepass@gmail.com", "password1234", "facebook.com", "notes"),
 
-            });
+            }.ForEach(_safe["Internet"].Add);
 
-            _safe["Bank"].AddRange(new List<Credential>
+            new List<Credential>
             {
                 new Credential("BankofScottland", "keepass@gmail.com", "password1234", "evernote.com", "notes"),
                 new Credential("BankofCyprus", "keepass@gmail.com", "password1234", "facebook.com", "notes")
 
-            });
+            }.ForEach(_safe["Bank"].Add);
             #endregion
 
             InitializeComponent();
@@ -51,7 +51,41 @@ namespace Keepass2
         {
             var category = (string) ((ListBox) sender).SelectedItem;
 
-            CredentialsDataGrid.ItemsSource = _safe[category];
+            CredentialsDataGrid.ItemsSource = category == null ? null : _safe[category];
+        }
+
+        private void OnDeleteCategory(object sender, RoutedEventArgs e)
+        {
+            var category = (string) CategoriesListBox.SelectedItem;
+            
+            if (category == null) return;
+
+            _safe.RemoveGroup(category);
+        }
+
+        private void OnEditCategory(object sender, RoutedEventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void OnDeleteCredential(object sender, RoutedEventArgs e)
+        {
+            var category = (string) CategoriesListBox.SelectedItem;
+            var credential = (Credential)CredentialsDataGrid.SelectedItem;
+
+            if (credential == null) return;
+
+            _safe[category].Remove(credential);
+        }
+
+        private void OnEditCredential(object sender, RoutedEventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void OnCopyCredential(object sender, RoutedEventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

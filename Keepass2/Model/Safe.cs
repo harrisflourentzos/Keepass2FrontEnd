@@ -1,19 +1,28 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using System.Collections.ObjectModel;
 
 namespace Keepass2.Model
 {
     public class Safe
     {
-        private Dictionary<string, List<Credential>> contents = new Dictionary<string, List<Credential>>();
+        private readonly Dictionary<string, ObservableCollection<Credential>> _contents = new Dictionary<string, ObservableCollection<Credential>>();
 
         public string Name { get; set; }
         public string Password { get; set; }
-        public List<string> Groups => contents.Keys.ToList();
+        public ObservableCollection<string> Groups { get; } = new ObservableCollection<string>();
 
-        public void AddGroup(string name) => contents[name] = new List<Credential>();
-        public void RemoveGroup(string name) => contents.Remove(name);
+        public void AddGroup(string name)
+        {
+            if (!Groups.Contains(name)) Groups.Add(name);
+            _contents[name] = new ObservableCollection<Credential>();
+        }
 
-        public List<Credential> this[string group] => contents[group];
+        public void RemoveGroup(string name)
+        {
+            Groups.Remove(name);
+            _contents.Remove(name);
+        }
+
+        public ObservableCollection<Credential> this[string group] => _contents[group];
     }
 }

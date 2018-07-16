@@ -54,6 +54,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="NewOrExistingPage.xaml.cs">
+      <DependentUpon>NewOrExistingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewSafeLocationPage.xaml.cs">
+      <DependentUpon>NewSafeLocationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewSafeState.cs" />
     <Compile Include="SafeBrowser.xaml.cs">
       <DependentUpon>SafeBrowser.xaml</DependentUpon>
     </Compile>
@@ -70,6 +77,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NewOrExistingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewSafeLocationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SafeBrowser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
