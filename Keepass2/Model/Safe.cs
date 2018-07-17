@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Security;
 
 namespace Keepass2.Model
 {
@@ -8,8 +9,41 @@ namespace Keepass2.Model
         private readonly Dictionary<string, ObservableCollection<Credential>> _contents = new Dictionary<string, ObservableCollection<Credential>>();
 
         public string Name { get; set; }
-        public string Password { get; set; }
+        public SecureString Password { get; set; }
+        public string Location { get; set; }
         public ObservableCollection<string> Groups { get; } = new ObservableCollection<string>();
+
+        public Safe(NewSafeState newSafeState)
+        {
+            Name = newSafeState.Name;
+            Password = newSafeState.MasterPassword;
+            Location = newSafeState.Location;
+
+            AddGroup("Internet");
+            AddGroup("Bank");
+            AddGroup("Windows");
+
+            new List<Credential>
+            {
+                new Credential("Evernote", "keepass@gmail.com", "password1234", "evernote.com", "notes"),
+                new Credential("Facebook", "keepass@gmail.com", "password1234", "facebook.com", "notes"),
+                new Credential("Facebook", "keepass@gmail.com", "password1234", "facebook.com", "notes"),
+                new Credential("Facebook", "keepass@gmail.com", "password1234", "facebook.com", "notes"),
+                new Credential("Facebook", "keepass@gmail.com", "password1234", "facebook.com", "notes"),
+                new Credential("Facebook", "keepass@gmail.com", "password1234", "facebook.com", "notes"),
+                new Credential("Facebook", "keepass@gmail.com", "password1234", "facebook.com", "notes"),
+                new Credential("Facebook", "keepass@gmail.com", "password1234", "facebook.com", "notes"),
+
+            }.ForEach(this._contents["Internet"].Add);
+
+            new List<Credential>
+            {
+                new Credential("BankofScottland", "keepass@gmail.com", "password1234", "evernote.com", "notes"),
+                new Credential("BankofCyprus", "keepass@gmail.com", "password1234", "facebook.com", "notes")
+
+            }.ForEach(this._contents["Bank"].Add);
+
+        }
 
         public void AddGroup(string name)
         {
@@ -24,5 +58,6 @@ namespace Keepass2.Model
         }
 
         public ObservableCollection<Credential> this[string group] => _contents[group];
+
     }
 }

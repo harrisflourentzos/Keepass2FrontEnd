@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Security;
 
 namespace Keepass2
 {
@@ -10,6 +6,6 @@ namespace Keepass2
     {
         public string Name { get; set; }
         public string Location { get; set; }
-        public string MasterPassword { get; set; }
+        public SecureString MasterPassword { get; set; }
     }
 }
