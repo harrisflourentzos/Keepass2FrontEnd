@@ -1,6 +1,7 @@
 ﻿using Keepass2.Model;
 using System.Windows;
 using System.Windows.Controls;
+using Keepass2.Storage;
 
 namespace Keepass2
 {
@@ -22,6 +23,9 @@ namespace Keepass2
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var newSafe = new Safe((NewSafeState)DataContext);
+
+            Repository.Instance = new JsonRepository();
+            Repository.Instance.Save(newSafe);
 
             NavigationService.Navigate(new SafeBrowserPage(newSafe));
         }

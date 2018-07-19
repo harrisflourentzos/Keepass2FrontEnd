@@ -13,6 +13,9 @@ namespace Keepass2.Model
         public string Location { get; set; }
         public ObservableCollection<string> Groups { get; } = new ObservableCollection<string>();
 
+        public Safe()
+        {
+        }
         public Safe(NewSafeState newSafeState)
         {
             Name = newSafeState.Name;

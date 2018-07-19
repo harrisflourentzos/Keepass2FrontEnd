@@ -2,6 +2,6 @@
 {
     public static class Repository
     {
-        private static IRepository Instance { get; set; }
+        public static IRepository Instance { get; set; }
     }
 }
