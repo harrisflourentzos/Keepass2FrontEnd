@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:Keepass2"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <SolidColorBrush x:Key="MyBlue"
+                         Color="#FF4364EE"></SolidColorBrush>
+        <Style TargetType="TextBlock">
+            <Setter Property="Background"
+                    Value="{StaticResource MyBlue}"></Setter>
+            <Setter Property="Foreground"
+                    Value="White"></Setter>
+            <Setter Property="TextWrapping"
+                    Value="Wrap"></Setter>
+        </Style>
     </Application.Resources>
 </Application>

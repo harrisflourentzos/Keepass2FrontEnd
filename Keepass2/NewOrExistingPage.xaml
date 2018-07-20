@@ -8,21 +8,104 @@
       d:DesignHeight="450"
       d:DesignWidth="800"
       Title="NewOrExistingPage">
+    <Page.Resources>
+
+        <Style TargetType="{x:Type Image}">
+            <Setter Property="Opacity"
+                    Value="0.7" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Opacity"
+                            Value="1" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
 
     <StackPanel Orientation="Vertical">
-        <TextBlock FontSize="24"
-                   Foreground="White">
-            Select Safe
+        <TextBlock FontSize="30"
+                   Height="60"
+                   FontWeight="Bold"
+                   TextAlignment="Center">
+            Welcome to Keepass2
         </TextBlock>
-        <TextBlock>I villa mou</TextBlock>
+        <Grid Background="{StaticResource MyBlue}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="15*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="2"
+                       Grid.Row="0"
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="10">Use this icon to create a new Keepass2 safe. This is a regular file that will be locked with a master password of your choice.</TextBlock>
+            <TextBlock Grid.Column="2"
+                       Grid.Row="1"
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="10">Use this icon to open your already created Keepass2 safe(s)</TextBlock>
+            <Ellipse Fill="White"
+                     Height="10"
+                     Width="10"
+                     Margin="5"></Ellipse>
+            <Image Grid.Column="1"
+                   Grid.Row="0"
+                   Margin="5,0"
+                   Source="icons/safe-box.png"></Image>
+            <Ellipse Fill="White"
+                     Height="10"
+                     Width="10"
+                     Margin="5"
+                     Grid.Row="1"></Ellipse>
+            <Image Grid.Column="1"
+                   Grid.Row="1"
+                   Margin="5,0"
+                   Source="icons/safe-box.png"></Image>
+        </Grid>
+
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
+            <StackPanel HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Margin="70,100">
+                <Image Source="icons/safe-box.png"
+                       MouseLeftButtonDown="OnCreateNew"
+                       Height="200"
+                       Width="200" />
+                <TextBlock TextAlignment="Center"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource MyBlue}"
+                           Background="{x:Null}">New Safe</TextBlock>
+            </StackPanel>
 
-            <Button Click="OnCreateNew">New</Button>
-            <Button Grid.Column="1" Click="OnOpenExisting">Open</Button>
+            <StackPanel Grid.Column="1"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Margin="70,100">
+                <Image Source="icons/safe-box.png"
+                       MouseLeftButtonDown="OnOpenExisting"
+                       Height="200"
+                       Width="200" />
+                <TextBlock TextAlignment="Center"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource MyBlue}"
+                           Background="{x:Null}">Load Safe</TextBlock>
+            </StackPanel>
 
         </Grid>
 

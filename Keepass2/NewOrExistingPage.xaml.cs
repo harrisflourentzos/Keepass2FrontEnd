@@ -37,5 +37,6 @@ namespace Keepass2
                 NavigationService.Navigate(new OpenExistingSafePage() { DataContext = Repository.Instance.Load(dialog.FileName) });
             }
         }
+
     }
 }
