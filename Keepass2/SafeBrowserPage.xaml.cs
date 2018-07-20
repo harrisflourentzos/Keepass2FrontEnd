@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Keepass2.Model;
 using Keepass2.Utilities;
 
@@ -31,6 +32,11 @@ namespace Keepass2
             CredentialsListView.ItemsSource = category == null ? null : _safe[category];
         }
 
+        private void OnCreateNewCategory(object sender, MouseButtonEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         private void OnDeleteCategory(object sender, RoutedEventArgs e)
         {
             var category = (string)CategoriesListBox.SelectedItem;
@@ -45,6 +51,16 @@ namespace Keepass2
             throw new System.NotImplementedException();
         }
 
+        private void OnCreateNewCredential(object sender, MouseButtonEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnEditCredential(object sender, RoutedEventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
         private void OnDeleteCredential(object sender, RoutedEventArgs e)
         {
             var category = (string)CategoriesListBox.SelectedItem;
@@ -53,11 +69,6 @@ namespace Keepass2
             if (credential == null) return;
 
             _safe[category].Remove(credential);
-        }
-
-        private void OnEditCredential(object sender, RoutedEventArgs e)
-        {
-            throw new System.NotImplementedException();
         }
 
         private void OnCopyUserName(object sender, RoutedEventArgs e)
