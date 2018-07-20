@@ -42,27 +42,52 @@
 
         <DockPanel Grid.Column="1">
             <TextBlock DockPanel.Dock="Top">Credentials</TextBlock>
-            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
-                <Button Click="OnCopyUserName">Copy User Name</Button>
-                <Button Click="OnCopyPassword">Copy Password</Button>
-                <Button Click="OnOpenUrl">Open URL</Button>
-
-                <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
-
-                <Button Click="OnEditCredential">Edit</Button>
-                <Button Click="OnDeleteCredential">Delete</Button>
-            </StackPanel>
-
+            
             <ListView x:Name="CredentialsListView" 
                       SelectionMode="Single"
                       HorizontalContentAlignment="Stretch" 
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <DockPanel Width="100" Height="100">
-                            <TextBlock DockPanel.Dock="Bottom" Text="{Binding Title}"></TextBlock>
-                            <Image Source="icons/key.png" Height="50" Width="50"/>
-                        </DockPanel>
+                        <Menu>
+                            <MenuItem>
+                                <MenuItem.Header>
+                                    <DockPanel Width="100" Height="100">
+                                        <TextBlock DockPanel.Dock="Bottom" Text="{Binding Title}"></TextBlock>
+                                        <Image Source="icons/key.png" Height="50" Width="50"/>
+                                    </DockPanel>
+                                </MenuItem.Header>
+
+                                <MenuItem Header="Copy User Name" Click="OnCopyUserName">
+                                    <MenuItem.Icon>
+                                        <Image Source="icons/copy.png"></Image>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="Copy Password" Click="OnCopyPassword">
+                                    <MenuItem.Icon>
+                                        <Image Source="icons/copy.png"></Image>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="Open URL" Click="OnOpenUrl">
+                                    <MenuItem.Icon>
+                                        <Image Source="icons/web.png"></Image>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                
+                                <Separator />
+
+                                <MenuItem Header="Edit..." Click="OnEditCredential">
+                                    <MenuItem.Icon>
+                                        <Image Source="icons/edit.png"></Image>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="Delete" Click="OnDeleteCredential">
+                                    <MenuItem.Icon>
+                                        <Image Source="icons/delete.png"></Image>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </MenuItem>
+                        </Menu>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
                 <ItemsControl.ItemsPanel>
@@ -74,4 +99,6 @@
         </DockPanel>
     </Grid>
 </Page>
+
+
 
