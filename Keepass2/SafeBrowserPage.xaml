@@ -33,69 +33,90 @@
                 <Button Click="OnEditCategory">Edit</Button>
             </StackPanel>
 
-            <ListBox x:Name="CategoriesListBox"
-                     ItemTemplate='{StaticResource Categories}'
-                     SelectionChanged="OnCategorySelection">
-            </ListBox>
-
+            <Grid>
+                <ListBox x:Name="CategoriesListBox"
+                         ItemTemplate='{StaticResource Categories}'
+                         SelectionChanged="OnCategorySelection">
+                </ListBox>
+                <Image Source="icons/new.png"
+                       Width="50"
+                       Height="50"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Bottom"
+                       Margin="10"
+                       MouseLeftButtonDown="OnCreateNewCategory"
+                       Style="{StaticResource ClickableImage}">
+                </Image>
+            </Grid>
         </DockPanel>
 
         <DockPanel Grid.Column="1">
             <TextBlock DockPanel.Dock="Top">Credentials</TextBlock>
             
-            <ListView x:Name="CredentialsListView" 
+            <Grid>
+                <ListView x:Name="CredentialsListView" 
                       SelectionMode="Single"
                       HorizontalContentAlignment="Stretch" 
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Menu>
-                            <MenuItem>
-                                <MenuItem.Header>
-                                    <DockPanel Width="100" Height="100">
-                                        <TextBlock DockPanel.Dock="Bottom" Text="{Binding Title}"></TextBlock>
-                                        <Image Source="icons/key.png" Height="50" Width="50"/>
-                                    </DockPanel>
-                                </MenuItem.Header>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Menu>
+                                <MenuItem>
+                                    <MenuItem.Header>
+                                        <DockPanel Width="100" Height="100">
+                                            <TextBlock DockPanel.Dock="Bottom" Text="{Binding Title}"></TextBlock>
+                                            <Image Source="icons/key.png" Height="50" Width="50"/>
+                                        </DockPanel>
+                                    </MenuItem.Header>
 
-                                <MenuItem Header="Copy User Name" Click="OnCopyUserName">
-                                    <MenuItem.Icon>
-                                        <Image Source="icons/copy.png"></Image>
-                                    </MenuItem.Icon>
-                                </MenuItem>
-                                <MenuItem Header="Copy Password" Click="OnCopyPassword">
-                                    <MenuItem.Icon>
-                                        <Image Source="icons/copy.png"></Image>
-                                    </MenuItem.Icon>
-                                </MenuItem>
-                                <MenuItem Header="Open URL" Click="OnOpenUrl">
-                                    <MenuItem.Icon>
-                                        <Image Source="icons/web.png"></Image>
-                                    </MenuItem.Icon>
-                                </MenuItem>
-                                
-                                <Separator />
+                                    <MenuItem Header="Copy User Name" Click="OnCopyUserName">
+                                        <MenuItem.Icon>
+                                            <Image Source="icons/copy.png"></Image>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header="Copy Password" Click="OnCopyPassword">
+                                        <MenuItem.Icon>
+                                            <Image Source="icons/copy.png"></Image>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header="Open URL" Click="OnOpenUrl">
+                                        <MenuItem.Icon>
+                                            <Image Source="icons/web.png"></Image>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
 
-                                <MenuItem Header="Edit..." Click="OnEditCredential">
-                                    <MenuItem.Icon>
-                                        <Image Source="icons/edit.png"></Image>
-                                    </MenuItem.Icon>
+                                    <Separator />
+
+                                    <MenuItem Header="Edit..." Click="OnEditCredential">
+                                        <MenuItem.Icon>
+                                            <Image Source="icons/edit.png"></Image>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header="Delete" Click="OnDeleteCredential">
+                                        <MenuItem.Icon>
+                                            <Image Source="icons/delete.png"></Image>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
                                 </MenuItem>
-                                <MenuItem Header="Delete" Click="OnDeleteCredential">
-                                    <MenuItem.Icon>
-                                        <Image Source="icons/delete.png"></Image>
-                                    </MenuItem.Icon>
-                                </MenuItem>
-                            </MenuItem>
-                        </Menu>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ListView>
+                            </Menu>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ListView>
+                <Image Source="icons/new.png"
+                       Width="50"
+                       Height="50"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Bottom"
+                       Margin="10"
+                       MouseLeftButtonDown="OnCreateNewCredential"
+                       Style="{StaticResource ClickableImage}">
+                </Image>
+            </Grid>
         </DockPanel>
     </Grid>
 </Page>
