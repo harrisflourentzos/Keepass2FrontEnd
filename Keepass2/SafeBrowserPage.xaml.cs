@@ -1,6 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using Keepass2.Model;
+using Keepass2.Utilities;
 
 namespace Keepass2
 {
@@ -18,13 +20,15 @@ namespace Keepass2
             InitializeComponent();
 
             CategoriesListBox.ItemsSource = _safe.Groups;
+
+            DataContext = safe;
         }
 
         private void OnCategorySelection(object sender, SelectionChangedEventArgs e)
         {
             var category = (string)((ListBox)sender).SelectedItem;
 
-            CredentialsDataGrid.ItemsSource = category == null ? null : _safe[category];
+            CredentialsListView.ItemsSource = category == null ? null : _safe[category];
         }
 
         private void OnDeleteCategory(object sender, RoutedEventArgs e)
@@ -44,7 +48,7 @@ namespace Keepass2
         private void OnDeleteCredential(object sender, RoutedEventArgs e)
         {
             var category = (string)CategoriesListBox.SelectedItem;
-            var credential = (Credential)CredentialsDataGrid.SelectedItem;
+            var credential = (Credential)CredentialsListView.SelectedItem;
 
             if (credential == null) return;
 
@@ -56,9 +60,30 @@ namespace Keepass2
             throw new System.NotImplementedException();
         }
 
-        private void OnCopyCredential(object sender, RoutedEventArgs e)
+        private void OnCopyUserName(object sender, RoutedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            var credential = (Credential)CredentialsListView.SelectedItem;
+            credential.UserName.CopyToClipboard();
+        }
+
+        private void OnCopyPassword(object sender, RoutedEventArgs e)
+        {
+            var credential = (Credential)CredentialsListView.SelectedItem;
+            credential.Password.CopyToClipboard();
+        }
+
+        private void OnOpenUrl(object sender, RoutedEventArgs e)
+        {
+            var credential = (Credential)CredentialsListView.SelectedItem;
+
+            try
+            {
+                System.Diagnostics.Process.Start(credential.Url);
+            }
+            catch (Exception exception)
+            {
+                Console.Error.WriteLine(exception);
+            }
         }
     }
 }

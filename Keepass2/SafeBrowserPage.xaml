@@ -17,31 +17,61 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" MaxWidth="350"/>
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
-        <StackPanel>
-            <TextBlock>Categories</TextBlock>
+
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top">
+                <Image Source="icons/safe-box.png"></Image>
+                <TextBlock Text="{Binding Name}"></TextBlock>
+                <TextBlock>Categories</TextBlock>
+            </StackPanel>
+
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+                <Button Click="OnDeleteCategory">Delete</Button>
+                <Button Click="OnEditCategory">Edit</Button>
+            </StackPanel>
+
             <ListBox x:Name="CategoriesListBox"
                      ItemTemplate='{StaticResource Categories}'
                      SelectionChanged="OnCategorySelection">
             </ListBox>
-            <StackPanel Orientation="Horizontal">
-                <Button Click="OnDeleteCategory">Delete</Button>
-                <Button Click="OnEditCategory">Edit</Button>
-            </StackPanel>
-        </StackPanel>
 
-        <StackPanel Grid.Column="1">
-            <TextBlock>Credentials</TextBlock>
-            <DataGrid x:Name="CredentialsDataGrid"
-                      IsReadOnly="True"></DataGrid>
-            <StackPanel Orientation="Horizontal">
-                <Button Click="OnDeleteCredential">Delete</Button>
+        </DockPanel>
+
+        <DockPanel Grid.Column="1">
+            <TextBlock DockPanel.Dock="Top">Credentials</TextBlock>
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+                <Button Click="OnCopyUserName">Copy User Name</Button>
+                <Button Click="OnCopyPassword">Copy Password</Button>
+                <Button Click="OnOpenUrl">Open URL</Button>
+
+                <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+
                 <Button Click="OnEditCredential">Edit</Button>
-                <Button Click="OnCopyCredential">Copy</Button>
+                <Button Click="OnDeleteCredential">Delete</Button>
             </StackPanel>
-        </StackPanel>
 
+            <ListView x:Name="CredentialsListView" 
+                      SelectionMode="Single"
+                      HorizontalContentAlignment="Stretch" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <DockPanel Width="100" Height="100">
+                            <TextBlock DockPanel.Dock="Bottom" Text="{Binding Title}"></TextBlock>
+                            <Image Source="icons/icon.png" Height="50" Width="50"/>
+                        </DockPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ListView>
+        </DockPanel>
     </Grid>
 </Page>
+
