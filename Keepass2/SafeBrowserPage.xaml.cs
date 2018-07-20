@@ -48,7 +48,7 @@ namespace Keepass2
         private void OnDeleteCredential(object sender, RoutedEventArgs e)
         {
             var category = (string)CategoriesListBox.SelectedItem;
-            var credential = (Credential)CredentialsListView.SelectedItem;
+            var credential = (Credential)((FrameworkElement)sender).DataContext;
 
             if (credential == null) return;
 
@@ -62,19 +62,19 @@ namespace Keepass2
 
         private void OnCopyUserName(object sender, RoutedEventArgs e)
         {
-            var credential = (Credential)CredentialsListView.SelectedItem;
+            var credential = (Credential)((FrameworkElement)sender).DataContext;
             credential.UserName.CopyToClipboard();
         }
 
         private void OnCopyPassword(object sender, RoutedEventArgs e)
         {
-            var credential = (Credential)CredentialsListView.SelectedItem;
+            var credential = (Credential)((FrameworkElement)sender).DataContext;
             credential.Password.CopyToClipboard();
         }
 
         private void OnOpenUrl(object sender, RoutedEventArgs e)
         {
-            var credential = (Credential)CredentialsListView.SelectedItem;
+            var credential = (Credential)((FrameworkElement)sender).DataContext;
 
             try
             {
