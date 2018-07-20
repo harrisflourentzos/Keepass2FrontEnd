@@ -1,6 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using Keepass2.Model;
+using Keepass2.Utilities;
 
 namespace Keepass2
 {
@@ -58,9 +60,30 @@ namespace Keepass2
             throw new System.NotImplementedException();
         }
 
-        private void OnCopyCredential(object sender, RoutedEventArgs e)
+        private void OnCopyUserName(object sender, RoutedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            var credential = (Credential)CredentialsDataGrid.SelectedItem;
+            credential.UserName.CopyToClipboard();
+        }
+
+        private void OnCopyPassword(object sender, RoutedEventArgs e)
+        {
+            var credential = (Credential)CredentialsDataGrid.SelectedItem;
+            credential.Password.CopyToClipboard();
+        }
+
+        private void OnOpenUrl(object sender, RoutedEventArgs e)
+        {
+            var credential = (Credential)CredentialsDataGrid.SelectedItem;
+
+            try
+            {
+                System.Diagnostics.Process.Start(credential.Url);
+            }
+            catch (Exception exception)
+            {
+                Console.Error.WriteLine(exception);
+            }
         }
     }
 }

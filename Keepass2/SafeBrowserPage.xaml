@@ -43,9 +43,14 @@
         <DockPanel Grid.Column="1">
             <TextBlock DockPanel.Dock="Top">Credentials</TextBlock>
             <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
-                <Button Click="OnDeleteCredential">Delete</Button>
+                <Button Click="OnCopyUserName">Copy User Name</Button>
+                <Button Click="OnCopyPassword">Copy Password</Button>
+                <Button Click="OnOpenUrl">Open URL</Button>
+
+                <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+
                 <Button Click="OnEditCredential">Edit</Button>
-                <Button Click="OnCopyCredential">Copy</Button>
+                <Button Click="OnDeleteCredential">Delete</Button>
             </StackPanel>
             <DataGrid x:Name="CredentialsDataGrid"
                       IsReadOnly="True"></DataGrid>
@@ -53,3 +58,4 @@
         </DockPanel>
     </Grid>
 </Page>
+

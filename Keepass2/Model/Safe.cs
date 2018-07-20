@@ -28,21 +28,21 @@ namespace Keepass2.Model
 
             new List<Credential>
             {
-                new Credential("Evernote", "keepass@gmail.com", "password1234", "evernote.com", "notes"),
-                new Credential("Facebook", "keepass@gmail.com", "password1234", "facebook.com", "notes"),
-                new Credential("Facebook", "keepass@gmail.com", "password1234", "facebook.com", "notes"),
-                new Credential("Facebook", "keepass@gmail.com", "password1234", "facebook.com", "notes"),
-                new Credential("Facebook", "keepass@gmail.com", "password1234", "facebook.com", "notes"),
-                new Credential("Facebook", "keepass@gmail.com", "password1234", "facebook.com", "notes"),
-                new Credential("Facebook", "keepass@gmail.com", "password1234", "facebook.com", "notes"),
-                new Credential("Facebook", "keepass@gmail.com", "password1234", "facebook.com", "notes"),
+                new Credential("Evernote", "keepass@gmail.com", "password1234", "http://evernote.com", "notes"),
+                new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
+                new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
+                new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
+                new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
+                new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
+                new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
+                new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
 
             }.ForEach(this._contents["Internet"].Add);
 
             new List<Credential>
             {
-                new Credential("BankofScottland", "keepass@gmail.com", "password1234", "evernote.com", "notes"),
-                new Credential("BankofCyprus", "keepass@gmail.com", "password1234", "facebook.com", "notes")
+                new Credential("BankofScottland", "keepass@gmail.com", "password1234", "http://evernote.com", "notes"),
+                new Credential("BankofCyprus", "keepass@gmail.com", "password1234", "http://facebook.com", "notes")
 
             }.ForEach(this._contents["Bank"].Add);
 

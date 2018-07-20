@@ -83,6 +83,7 @@
     <Compile Include="Storage\IRepository.cs" />
     <Compile Include="Storage\JsonRepository.cs" />
     <Compile Include="Storage\Repository.cs" />
+    <Compile Include="Utilities\Extensions.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
