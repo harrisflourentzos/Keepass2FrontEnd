@@ -52,9 +52,25 @@
                 <Button Click="OnEditCredential">Edit</Button>
                 <Button Click="OnDeleteCredential">Delete</Button>
             </StackPanel>
-            <DataGrid x:Name="CredentialsDataGrid"
-                      IsReadOnly="True"></DataGrid>
 
+            <ListView x:Name="CredentialsListView" 
+                      SelectionMode="Single"
+                      HorizontalContentAlignment="Stretch" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <DockPanel Width="100" Height="100">
+                            <TextBlock DockPanel.Dock="Bottom" Text="{Binding Title}"></TextBlock>
+                            <Image Source="icons/icon.png" Height="50" Width="50"/>
+                        </DockPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ListView>
         </DockPanel>
     </Grid>
 </Page>

@@ -149,5 +149,8 @@
   <ItemGroup>
     <Resource Include="icons\safe-box.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

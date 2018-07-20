@@ -28,7 +28,7 @@ namespace Keepass2
         {
             var category = (string)((ListBox)sender).SelectedItem;
 
-            CredentialsDataGrid.ItemsSource = category == null ? null : _safe[category];
+            CredentialsListView.ItemsSource = category == null ? null : _safe[category];
         }
 
         private void OnDeleteCategory(object sender, RoutedEventArgs e)
@@ -48,7 +48,7 @@ namespace Keepass2
         private void OnDeleteCredential(object sender, RoutedEventArgs e)
         {
             var category = (string)CategoriesListBox.SelectedItem;
-            var credential = (Credential)CredentialsDataGrid.SelectedItem;
+            var credential = (Credential)CredentialsListView.SelectedItem;
 
             if (credential == null) return;
 
@@ -62,19 +62,19 @@ namespace Keepass2
 
         private void OnCopyUserName(object sender, RoutedEventArgs e)
         {
-            var credential = (Credential)CredentialsDataGrid.SelectedItem;
+            var credential = (Credential)CredentialsListView.SelectedItem;
             credential.UserName.CopyToClipboard();
         }
 
         private void OnCopyPassword(object sender, RoutedEventArgs e)
         {
-            var credential = (Credential)CredentialsDataGrid.SelectedItem;
+            var credential = (Credential)CredentialsListView.SelectedItem;
             credential.Password.CopyToClipboard();
         }
 
         private void OnOpenUrl(object sender, RoutedEventArgs e)
         {
-            var credential = (Credential)CredentialsDataGrid.SelectedItem;
+            var credential = (Credential)CredentialsListView.SelectedItem;
 
             try
             {
