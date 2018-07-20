@@ -159,7 +159,7 @@
     <Resource Include="icons\open-folder.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="icons\icon.png" />
+    <Resource Include="icons\key.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

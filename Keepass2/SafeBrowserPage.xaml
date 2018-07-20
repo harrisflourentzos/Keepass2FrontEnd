@@ -61,7 +61,7 @@
                     <DataTemplate>
                         <DockPanel Width="100" Height="100">
                             <TextBlock DockPanel.Dock="Bottom" Text="{Binding Title}"></TextBlock>
-                            <Image Source="icons/icon.png" Height="50" Width="50"/>
+                            <Image Source="icons/key.png" Height="50" Width="50"/>
                         </DockPanel>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
