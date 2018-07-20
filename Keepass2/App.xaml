@@ -5,7 +5,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <SolidColorBrush x:Key="MyBlue"
-                         Color="#FF4364EE"></SolidColorBrush>
+                         Color="#3385FF"></SolidColorBrush>
         <Style TargetType="TextBlock">
             <Setter Property="Background"
                     Value="{StaticResource MyBlue}"></Setter>
@@ -13,6 +13,17 @@
                     Value="White"></Setter>
             <Setter Property="TextWrapping"
                     Value="Wrap"></Setter>
+        </Style>
+        <Style x:Key="ClickableImage">
+            <Setter Property="Image.Opacity"
+                    Value="0.7" />
+            <Style.Triggers>
+                <Trigger Property="Image.IsMouseOver"
+                         Value="True">
+                    <Setter Property="Image.Opacity"
+                            Value="1" />
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </Application.Resources>
 </Application>

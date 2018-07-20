@@ -45,34 +45,69 @@
 
         <Grid Height="100"
               DockPanel.Dock="Bottom">
-            <Button Click="OnNext"
-                    HorizontalAlignment="Right">Next</Button>
-            <Button HorizontalAlignment="Left">Back</Button>
+            <StackPanel HorizontalAlignment="Right"
+                        Margin="0,0,10,0">
+                <Image Source="icons/right-arrow.png"
+                       Style="{StaticResource ClickableImage}"
+                       MouseLeftButtonDown="OnNext"
+                       Height="50"
+                       Width="50" />
+                <TextBlock TextAlignment="Center"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource MyBlue}"
+                           Background="{x:Null}">Next</TextBlock>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left"
+                        Margin="10,0,0,0">
+                <Image Source="icons/left-arrow.png"
+                       Style="{StaticResource ClickableImage}"
+                       MouseLeftButtonDown="OnBack"
+                       Height="50"
+                       Width="50" />
+                <TextBlock TextAlignment="Center"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource MyBlue}"
+                           Background="{x:Null}">Back</TextBlock>
+            </StackPanel>
         </Grid>
 
-        <StackPanel>
+        <Grid Margin="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
             <TextBlock FontSize="24"
-                       Foreground="White">
-            What do you want to name your Safe file?
+                       Margin="10"
+                       VerticalAlignment="Center"
+                       MaxHeight="40"
+                       MaxWidth="300"
+                       Foreground="{StaticResource MyBlue}"
+                       Background="{x:Null}">
+            Safe Name:
             </TextBlock>
-            <TextBox Text="{Binding Mode=OneWayToSource, Path=Name}"></TextBox>
-            <TextBlock FontSize="24"
-                       Foreground="White">
-            Where do you want your new Safe file to be saved?
-            </TextBlock>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-
-                <TextBlock x:Name="LocationTextBlock"
-                           Text="{Binding Location}">Location</TextBlock>
-                <Button Grid.Column="1"
-                        Click="OnLocationBrowse">Browse</Button>
-
-            </Grid>
-
-        </StackPanel>
+            <TextBox Text="{Binding Mode=OneWayToSource, Path=Name}"
+                     Margin="10"
+                     Grid.Column="1"
+                     MaxHeight="40"
+                     MaxWidth="300"></TextBox>
+            <TextBlock x:Name="LocationTextBlock"
+                       Margin="10"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       MaxHeight="40"
+                       MaxWidth="300"
+                       Text="{Binding Location}"></TextBlock>
+            <Image  Source="icons/open-folder.png"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    MouseLeftButtonDown="OnLocationBrowse"></Image>
+        </Grid>
     </DockPanel>
 </Page>

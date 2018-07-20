@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace Keepass2
@@ -33,6 +34,11 @@ namespace Keepass2
         private void OnNext(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new NewSafePasswordPage() { DataContext = DataContext });
+        }
+
+        private void OnBack(object sender, MouseButtonEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
