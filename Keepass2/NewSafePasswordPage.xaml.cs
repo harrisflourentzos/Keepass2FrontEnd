@@ -1,6 +1,7 @@
 ﻿using Keepass2.Model;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Keepass2.Storage;
 
 namespace Keepass2
@@ -20,7 +21,7 @@ namespace Keepass2
             ((NewSafeState) DataContext).MasterPassword = ((PasswordBox)sender).SecurePassword;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void OnDone(object sender, MouseButtonEventArgs e)
         {
             var newSafe = new Safe((NewSafeState)DataContext);
 
@@ -28,6 +29,11 @@ namespace Keepass2
             Repository.Instance.Save(newSafe);
 
             NavigationService.Navigate(new SafeBrowserPage(newSafe));
+        }
+
+        private void OnBack(object sender, MouseButtonEventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

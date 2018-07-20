@@ -16,7 +16,7 @@
                        Height="60"
                        FontWeight="Bold"
                        TextAlignment="Center">
-            New Safe: Step 1/3
+            New Safe: Step 1/2
             </TextBlock>
             <Grid Background="{StaticResource MyBlue}">
                 <Grid.ColumnDefinitions>
@@ -99,13 +99,16 @@
                      MaxWidth="300"></TextBox>
             <TextBlock x:Name="LocationTextBlock"
                        Margin="10"
-                       Grid.Column="0"
+                       Grid.Column="1"
                        Grid.Row="1"
                        MaxHeight="40"
                        MaxWidth="300"
                        Text="{Binding Location}"></TextBlock>
-            <Image  Source="icons/open-folder.png"
-                    Grid.Column="1"
+            <Image  Style="{StaticResource ClickableImage}"
+                    Margin="20,0,0,0"
+                    HorizontalAlignment="Left"
+                    Source="icons/open-folder.png"
+                    Grid.Column="0"
                     Grid.Row="1"
                     MouseLeftButtonDown="OnLocationBrowse"></Image>
         </Grid>
