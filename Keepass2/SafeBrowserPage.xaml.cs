@@ -18,6 +18,8 @@ namespace Keepass2
             InitializeComponent();
 
             CategoriesListBox.ItemsSource = _safe.Groups;
+
+            DataContext = safe;
         }
 
         private void OnCategorySelection(object sender, SelectionChangedEventArgs e)
