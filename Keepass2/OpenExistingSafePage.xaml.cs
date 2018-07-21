@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using Keepass2.Model;
+using Keepass2.Utilities;
 
 namespace Keepass2
 {
@@ -21,27 +22,13 @@ namespace Keepass2
 
         private void OnDone(object sender, RoutedEventArgs e)
         {
-            if (PasswordBox.Password == SecureStringToString(((Safe)DataContext).Password))
+            if (PasswordBox.Password == Extensions.SecureStringToString(((Safe)DataContext).Password) || FakePasswordBox.Text == Extensions.SecureStringToString(((Safe)DataContext).Password))
             {
                 NavigationService.Navigate(new SafeBrowserPage((Safe)DataContext));
             }
             else
             {
                 WrongPassTextBlock.Visibility = Visibility.Visible;
-            }
-        }
-
-        public String SecureStringToString(SecureString value)
-        {
-            IntPtr valuePtr = IntPtr.Zero;
-            try
-            {
-                valuePtr = Marshal.SecureStringToGlobalAllocUnicode(value);
-                return Marshal.PtrToStringUni(valuePtr);
-            }
-            finally
-            {
-                Marshal.ZeroFreeGlobalAllocUnicode(valuePtr);
             }
         }
 
@@ -53,6 +40,22 @@ namespace Keepass2
         private void OnTextInput(object sender, RoutedEventArgs e)
         {
             WrongPassTextBlock.Visibility = Visibility.Hidden;
+        }
+
+        private void OnRevealPassword(object sender, MouseButtonEventArgs e)
+        {
+            if (FakePasswordBox.Visibility == Visibility.Hidden)
+            {
+                FakePasswordBox.Visibility = Visibility.Visible;
+                PasswordBox.Visibility = Visibility.Hidden;
+                FakePasswordBox.Text = PasswordBox.Password;
+            }
+            else
+            {
+                FakePasswordBox.Visibility = Visibility.Hidden;
+                PasswordBox.Visibility = Visibility.Visible;
+                PasswordBox.Password = FakePasswordBox.Text;
+            }
         }
     }
 }

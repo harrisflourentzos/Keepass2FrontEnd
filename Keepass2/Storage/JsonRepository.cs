@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Keepass2.Model;
+using Keepass2.Utilities;
 using Newtonsoft.Json;
 
 namespace Keepass2.Storage
@@ -28,7 +29,7 @@ namespace Keepass2.Storage
             }
 
             tempSafe.Name = safe.Name;
-            tempSafe.Password = SecureStringToString(safe.Password);
+            tempSafe.Password = Extensions.SecureStringToString(safe.Password);
             tempSafe.Content = tempContent;
             #endregion
 
@@ -62,7 +63,7 @@ namespace Keepass2.Storage
                 }
 
                 safe.Name = tempSafe.Name;
-                safe.Password = StringToSecureString(tempSafe.Password);
+                safe.Password = Extensions.StringToSecureString(tempSafe.Password);
                 safe.Location = location.Substring(0, location.LastIndexOf("\\"));
 
                 #endregion
@@ -73,32 +74,7 @@ namespace Keepass2.Storage
 
         }
 
-        public String SecureStringToString(SecureString value)
-        {
-            IntPtr valuePtr = IntPtr.Zero;
-            try
-            {
-                valuePtr = Marshal.SecureStringToGlobalAllocUnicode(value);
-                return Marshal.PtrToStringUni(valuePtr);
-            }
-            finally
-            {
-                Marshal.ZeroFreeGlobalAllocUnicode(valuePtr);
-            }
-        }
-
-        public SecureString StringToSecureString(string source)
-        {
-            if (string.IsNullOrWhiteSpace(source))
-                return null;
-            else
-            {
-                SecureString result = new SecureString();
-                foreach (char c in source.ToCharArray())
-                    result.AppendChar(c);
-                return result;
-            }
-        }
+        
 
         internal class TempSafe
         {
