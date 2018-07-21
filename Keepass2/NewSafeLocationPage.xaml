@@ -7,7 +7,7 @@
       mc:Ignorable="d"
       d:DesignHeight="450"
       d:DesignWidth="800"
-      Title="NewSafeLocationPage">
+      Title="NewSafeLocationPage" ShowsNavigationUI="False">
 
     <DockPanel>
         <StackPanel Orientation="Vertical"
@@ -75,7 +75,7 @@
 
         <Grid Margin="50">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition />
+                <ColumnDefinition  Width="Auto"/>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -85,7 +85,7 @@
 
             <TextBlock FontSize="24"
                        Margin="10"
-                       VerticalAlignment="Center"
+                       VerticalAlignment="Center" HorizontalAlignment="Left"
                        MaxHeight="40"
                        MaxWidth="300"
                        Foreground="{StaticResource MyBlue}"
@@ -104,7 +104,7 @@
                        MaxHeight="40"
                        MaxWidth="300"
                        Text="{Binding Location}"></TextBlock>
-            <Image  Style="{StaticResource ClickableImage}"
+            <Image  Style="{StaticResource ClickableImage}" Width="100" Height="60"
                     Margin="20,0,0,0"
                     HorizontalAlignment="Left"
                     Source="icons/open-folder.png"

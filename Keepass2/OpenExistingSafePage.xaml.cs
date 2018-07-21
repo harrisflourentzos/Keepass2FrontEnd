@@ -1,19 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Keepass2.Model;
 
 namespace Keepass2
@@ -52,6 +43,16 @@ namespace Keepass2
             {
                 Marshal.ZeroFreeGlobalAllocUnicode(valuePtr);
             }
+        }
+
+        private void OnBack(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new NewOrExistingPage());
+        }
+
+        private void OnTextInput(object sender, RoutedEventArgs e)
+        {
+            WrongPassTextBlock.Visibility = Visibility.Hidden;
         }
     }
 }

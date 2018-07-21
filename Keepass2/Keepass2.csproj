@@ -63,6 +63,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MainKeepass2Window.xaml.cs">
+      <DependentUpon>MainKeepass2Window.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NewOrExistingPage.xaml.cs">
       <DependentUpon>NewOrExistingPage.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,10 @@
     <Compile Include="Storage\JsonRepository.cs" />
     <Compile Include="Storage\Repository.cs" />
     <Compile Include="Utilities\Extensions.cs" />
+    <Page Include="MainKeepass2Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -171,6 +178,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icons\new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

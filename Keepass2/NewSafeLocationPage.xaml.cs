@@ -38,7 +38,7 @@ namespace Keepass2
 
         private void OnBack(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
+            NavigationService.Navigate(new NewOrExistingPage() { DataContext = new NewSafeState() });
         }
     }
 }

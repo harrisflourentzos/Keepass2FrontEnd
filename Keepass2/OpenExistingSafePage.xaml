@@ -9,7 +9,139 @@
       d:DesignWidth="800"
       Title="OpenExistingSafePage">
 
-    <Canvas>
+    <DockPanel>
+        <StackPanel Orientation="Vertical"
+                    DockPanel.Dock="Top">
+            <TextBlock FontSize="30"
+                       Height="60"
+                       FontWeight="Bold"
+                       TextAlignment="Center">
+            Open Safe: Step 1/1
+            </TextBlock>
+            <Grid Background="{StaticResource MyBlue}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="Auto"
+                                      MaxWidth="50" />
+                    <ColumnDefinition Width="15*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Ellipse Fill="White"
+                         Height="10"
+                         Width="10"
+                         Margin="5"></Ellipse>
+                <TextBlock Grid.Column="2"
+                           Grid.Row="0"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="10">Please Enter your Master Password to unlock this safe.</TextBlock>
+            </Grid>
+        </StackPanel>
+
+        <Grid Height="100"
+              DockPanel.Dock="Bottom">
+            <StackPanel HorizontalAlignment="Right"
+                        Margin="0,0,10,0">
+                <Image Source="icons/right-arrow.png"
+                       Style="{StaticResource ClickableImage}"
+                       MouseLeftButtonDown="OnDone"
+                       Height="50"
+                       Width="50" />
+                <TextBlock TextAlignment="Center"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource MyBlue}"
+                           Background="{x:Null}">Done</TextBlock>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left"
+                        Margin="10,0,0,0">
+                <Image Source="icons/left-arrow.png"
+                       Style="{StaticResource ClickableImage}"
+                       MouseLeftButtonDown="OnBack"
+                       Height="50"
+                       Width="50" />
+                <TextBlock TextAlignment="Center"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource MyBlue}"
+                           Background="{x:Null}">Back</TextBlock>
+            </StackPanel>
+        </Grid>
+
+        <Grid Margin="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="40" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock FontSize="16"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       MaxHeight="40"
+                       MaxWidth="400"
+                       Foreground="{StaticResource MyBlue}"
+                       Background="{x:Null}">
+            Safe Name:
+            </TextBlock>
+
+            <TextBlock  Grid.Column="0"
+                        Grid.Row="1"
+                        FontSize="16"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        MaxHeight="40"
+                        MaxWidth="400"
+                        Foreground="{StaticResource MyBlue}"
+                        Background="{x:Null}">
+                Enter Master Password:
+            </TextBlock>
+
+            <TextBlock Margin="0,0,10,0"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       MaxHeight="40"
+                       MaxWidth="400"
+                       Text="{Binding Name}"></TextBlock>
+            <PasswordBox x:Name="PasswordBox"
+                         Margin="0,0,10,0"
+                         Grid.Row="1"
+                         Grid.Column="1"
+                         MaxHeight="40"
+                         MaxWidth="400"
+                         PasswordChanged="OnTextInput"></PasswordBox>
+            <TextBlock  x:Name="WrongPassTextBlock"
+                        Text="Wrong Password"
+                        FontSize="24"
+                        Foreground="Red"
+                        TextAlignment="Center"
+                        Margin="0,0,10,0"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        MaxHeight="40"
+                        MaxWidth="400"
+                        Visibility="Hidden"></TextBlock>
+            <Image Grid.Column="2"
+                   Grid.Row="1"
+                   Style="{StaticResource ClickableImage}"
+                   Source="icons/eye.png"></Image>
+        </Grid>
+    </DockPanel>
+
+    <!--<Canvas>
         <TextBlock TextWrapping="Wrap"
                    Text="Database Name"
                    FontSize="24"
@@ -48,5 +180,5 @@
                    Canvas.Top="237"
                    Visibility="Hidden" />
 
-    </Canvas>
+    </Canvas>-->
 </Page>

@@ -18,7 +18,7 @@ namespace Keepass2
 
         private void OnPasswordChanged(object sender, RoutedEventArgs e)
         {
-            ((NewSafeState) DataContext).MasterPassword = ((PasswordBox)sender).SecurePassword;
+            ((NewSafeState)DataContext).MasterPassword = ((PasswordBox)sender).SecurePassword;
         }
 
         private void OnDone(object sender, MouseButtonEventArgs e)
@@ -33,7 +33,7 @@ namespace Keepass2
 
         private void OnBack(object sender, MouseButtonEventArgs e)
         {
-            throw new System.NotImplementedException();
+            NavigationService.Navigate(new NewSafeLocationPage() { DataContext = DataContext });
         }
     }
 }

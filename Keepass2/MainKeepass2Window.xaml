@@ -1,0 +1,70 @@
+﻿<Window x:Class="Keepass2.MainKeepass2Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Keepass2"
+        mc:Ignorable="d"
+        Title="MainKeepass2Window"
+        Height="450"
+        Width="800">
+    <Grid>
+        <!--<TabControl>
+            <TabItem BorderBrush="#FF5168E5"
+                     Background="#FF6A7AED">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="icons/safe-box.png"
+                               Height="30"
+                               Width="30"
+                               Margin="5"></Image>
+                        <TextBlock VerticalAlignment="Center"
+                                   Background="{x:Null}"
+                                   Foreground="{StaticResource MyBlue}"
+                                   FontWeight="Bold">Welcome</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+        </TabControl>-->
+
+        <TabControl Name="SafeBrowser"
+                    ItemsSource="{Binding}"
+                    SelectionChanged="OnTabSelected">
+            <TabControl.Resources>
+                <DataTemplate x:Key="TabHeader"
+                              DataType="TabItem">
+                    <DockPanel>
+                        <Button Name="btnDelete"
+                                DockPanel.Dock="Right"
+                                Margin="5,0,0,0"
+                                Padding="0"
+                                Click="OnTabDeleted"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}}">
+                            <Image Source="icons/delete.png"
+                                   Height="11"
+                                   Width="11"></Image>
+                        </Button>
+                        <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=TabItem }, Path=Header}" />
+                    </DockPanel>
+                </DataTemplate>
+                <Style TargetType="TextBox">
+                    <Setter Property="VerticalAlignment"
+                            Value="Stretch"></Setter>
+                    <Setter Property="HorizontalAlignment"
+                            Value="Stretch"></Setter>
+                    <Setter Property="AcceptsReturn"
+                            Value="True"></Setter>
+                    <Setter Property="TextWrapping"
+                            Value="WrapWithOverflow"></Setter>
+                    <Setter Property="MaxLines"
+                            Value="5000"></Setter>
+                    <Setter Property="ScrollViewer.VerticalScrollBarVisibility"
+                            Value="Auto"></Setter>
+                    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
+                            Value="Auto"></Setter>
+                </Style>
+            </TabControl.Resources>
+        </TabControl>
+
+    </Grid>
+</Window>
