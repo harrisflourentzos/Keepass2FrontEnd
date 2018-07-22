@@ -75,17 +75,17 @@
     <Compile Include="MainKeepass2Window.xaml.cs">
       <DependentUpon>MainKeepass2Window.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NewOrExistingPage.xaml.cs">
+    <Compile Include="Wizards\NewOrExistingPage.xaml.cs">
       <DependentUpon>NewOrExistingPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NewSafeLocationPage.xaml.cs">
+    <Compile Include="Wizards\NewSafe\NewSafeLocationPage.xaml.cs">
       <DependentUpon>NewSafeLocationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NewSafePasswordPage.xaml.cs">
+    <Compile Include="Wizards\NewSafe\NewSafePasswordPage.xaml.cs">
       <DependentUpon>NewSafePasswordPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="NewSafeState.cs" />
-    <Compile Include="OpenExistingSafePage.xaml.cs">
+    <Compile Include="Wizards\OpenSafe\OpenExistingSafePage.xaml.cs">
       <DependentUpon>OpenExistingSafePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Annotations.cs" />
@@ -112,19 +112,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="NewOrExistingPage.xaml">
+    <Page Include="Wizards\NewOrExistingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="NewSafeLocationPage.xaml">
+    <Page Include="Wizards\NewSafe\NewSafeLocationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="NewSafePasswordPage.xaml">
+    <Page Include="Wizards\NewSafe\NewSafePasswordPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="OpenExistingSafePage.xaml">
+    <Page Include="Wizards\OpenSafe\OpenExistingSafePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -193,6 +193,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icons\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Wizards\EditCredential\" />
+    <Folder Include="Wizards\NewCredential\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
