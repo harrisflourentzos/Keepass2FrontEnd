@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Navigation;
 using Keepass2.Model;
 using Keepass2.Utilities;
 
@@ -53,7 +54,10 @@ namespace Keepass2
 
         private void OnCreateNewCredential(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
+            Flyout.IsOpen = true;
+            var frame = new Frame { Content = new NewOrExistingPage(), NavigationUIVisibility = NavigationUIVisibility.Hidden };
+            frame.MaxWidth = 400;
+            Flyout.Content = frame;
         }
 
         private void OnEditCredential(object sender, RoutedEventArgs e)

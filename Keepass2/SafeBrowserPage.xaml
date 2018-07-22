@@ -4,20 +4,40 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Keepass2"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
       mc:Ignorable="d"
       d:DesignHeight="450"
       d:DesignWidth="800"
       Title="SafeBrowserPage">
 
     <Page.Resources>
-        <DataTemplate x:Key="Categories">
-            <TextBlock Text="{Binding}"></TextBlock>
-        </DataTemplate>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <!-- Accent and AppTheme setting -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+                <ResourceDictionary>
+                    <DataTemplate x:Key="Categories">
+                        <TextBlock Text="{Binding}"></TextBlock>
+                    </DataTemplate>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+        
+
+        
     </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" MaxWidth="350"/>
+            <ColumnDefinition Width="1*"
+                              MaxWidth="350" />
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
@@ -25,10 +45,11 @@
             <StackPanel DockPanel.Dock="Top">
                 <Image Source="icons/safe-box.png"></Image>
                 <TextBlock Text="{Binding Name}"></TextBlock>
-                <TextBlock>Categories</TextBlock>
+                <TextBlock Style="{StaticResource TitleTextBlock}">Categories</TextBlock>
             </StackPanel>
 
-            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <StackPanel DockPanel.Dock="Bottom"
+                        Orientation="Horizontal">
                 <Button Click="OnDeleteCategory">Delete</Button>
                 <Button Click="OnEditCategory">Edit</Button>
             </StackPanel>
@@ -51,35 +72,43 @@
         </DockPanel>
 
         <DockPanel Grid.Column="1">
-            <TextBlock DockPanel.Dock="Top">Credentials</TextBlock>
-            
+            <TextBlock DockPanel.Dock="Top"
+                       Style="{StaticResource TitleTextBlock}">Credentials</TextBlock>
+
             <Grid>
-                <ListView x:Name="CredentialsListView" 
-                      SelectionMode="Single"
-                      HorizontalContentAlignment="Stretch" 
-                      ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView x:Name="CredentialsListView"
+                          SelectionMode="Single"
+                          HorizontalContentAlignment="Stretch"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Menu>
                                 <MenuItem>
                                     <MenuItem.Header>
-                                        <DockPanel Width="100" Height="100">
-                                            <TextBlock DockPanel.Dock="Bottom" Text="{Binding Title}"></TextBlock>
-                                            <Image Source="icons/key.png" Height="50" Width="50"/>
+                                        <DockPanel Width="100"
+                                                   Height="100">
+                                            <TextBlock DockPanel.Dock="Bottom"
+                                                       Text="{Binding Title}"></TextBlock>
+                                            <Image Source="icons/key.png"
+                                                   Height="50"
+                                                   Width="50" />
                                         </DockPanel>
                                     </MenuItem.Header>
 
-                                    <MenuItem Header="Copy User Name" Click="OnCopyUserName">
+                                    <MenuItem Header="Copy User Name"
+                                              Click="OnCopyUserName">
                                         <MenuItem.Icon>
                                             <Image Source="icons/copy.png"></Image>
                                         </MenuItem.Icon>
                                     </MenuItem>
-                                    <MenuItem Header="Copy Password" Click="OnCopyPassword">
+                                    <MenuItem Header="Copy Password"
+                                              Click="OnCopyPassword">
                                         <MenuItem.Icon>
                                             <Image Source="icons/copy.png"></Image>
                                         </MenuItem.Icon>
                                     </MenuItem>
-                                    <MenuItem Header="Open URL" Click="OnOpenUrl">
+                                    <MenuItem Header="Open URL"
+                                              Click="OnOpenUrl">
                                         <MenuItem.Icon>
                                             <Image Source="icons/web.png"></Image>
                                         </MenuItem.Icon>
@@ -87,12 +116,14 @@
 
                                     <Separator />
 
-                                    <MenuItem Header="Edit..." Click="OnEditCredential">
+                                    <MenuItem Header="Edit..."
+                                              Click="OnEditCredential">
                                         <MenuItem.Icon>
                                             <Image Source="icons/edit.png"></Image>
                                         </MenuItem.Icon>
                                     </MenuItem>
-                                    <MenuItem Header="Delete" Click="OnDeleteCredential">
+                                    <MenuItem Header="Delete"
+                                              Click="OnDeleteCredential">
                                         <MenuItem.Icon>
                                             <Image Source="icons/delete.png"></Image>
                                         </MenuItem.Icon>
@@ -103,7 +134,7 @@
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <WrapPanel/>
+                            <WrapPanel />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                 </ListView>
@@ -116,6 +147,17 @@
                        MouseLeftButtonDown="OnCreateNewCredential"
                        Style="{StaticResource ClickableImage}">
                 </Image>
+
+                <Controls:FlyoutsControl>
+                    <Controls:Flyout x:Name="Flyout"
+                                     IsOpen="False"
+                                     Header="Flyout"
+                                     Position="Right"
+                                     Width="500"
+                                     Theme="Accent">
+                    </Controls:Flyout>
+                </Controls:FlyoutsControl>
+
             </Grid>
         </DockPanel>
     </Grid>

@@ -40,7 +40,7 @@ namespace Keepass2
                 HeaderTemplate = SafeBrowser.FindResource("TabHeader") as DataTemplate
             };
 
-            // add controls to tab item, this case I added just a textbox
+            // add controls to tab item
             var frame = new Frame { Content = new NewOrExistingPage(), NavigationUIVisibility = NavigationUIVisibility.Hidden };
             tab.Content = frame;
 

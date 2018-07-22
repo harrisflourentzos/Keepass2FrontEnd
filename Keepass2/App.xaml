@@ -4,27 +4,46 @@
              xmlns:local="clr-namespace:Keepass2"
              StartupUri="MainKeepass2Window.xaml">
     <Application.Resources>
-        <SolidColorBrush x:Key="MyBlue"
-                         Color="#3385FF"></SolidColorBrush>
-        <Style x:Key="TitleTextBlock"
-               TargetType="TextBlock">
-            <Setter Property="Background"
-                    Value="{StaticResource MyBlue}"></Setter>
-            <Setter Property="Foreground"
-                    Value="White"></Setter>
-            <Setter Property="TextWrapping"
-                    Value="Wrap"></Setter>
-        </Style>
-        <Style x:Key="ClickableImage">
-            <Setter Property="Image.Opacity"
-                    Value="0.7" />
-            <Style.Triggers>
-                <Trigger Property="Image.IsMouseOver"
-                         Value="True">
-                    <Setter Property="Image.Opacity"
-                            Value="1" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <!-- Accent and AppTheme setting -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+                <ResourceDictionary>
+                    <SolidColorBrush x:Key="MyBlue"
+                                     Color="#3385FF"></SolidColorBrush>
+                </ResourceDictionary>
+                <ResourceDictionary>
+                    <Style x:Key="TitleTextBlock"
+                           TargetType="TextBlock">
+                        <Setter Property="Background"
+                                Value="{StaticResource MyBlue}"></Setter>
+                        <Setter Property="Foreground"
+                                Value="White"></Setter>
+                        <Setter Property="TextWrapping"
+                                Value="Wrap"></Setter>
+                    </Style>
+                </ResourceDictionary>
+                <ResourceDictionary>
+                    <Style x:Key="ClickableImage">
+                        <Setter Property="Image.Opacity"
+                                Value="0.7" />
+                        <Style.Triggers>
+                            <Trigger Property="Image.IsMouseOver"
+                                     Value="True">
+                                <Setter Property="Image.Opacity"
+                                        Value="1" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
     </Application.Resources>
 </Application>
