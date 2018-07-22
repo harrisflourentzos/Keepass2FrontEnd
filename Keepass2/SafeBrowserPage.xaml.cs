@@ -6,6 +6,8 @@ using System.Windows.Navigation;
 using Keepass2.Model;
 using Keepass2.Utilities;
 using Keepass2.Wizards;
+using Keepass2.Wizards.EditCredential;
+using Keepass2.Wizards.NewCredential;
 
 namespace Keepass2
 {
@@ -55,15 +57,69 @@ namespace Keepass2
 
         private void OnCreateNewCredential(object sender, MouseButtonEventArgs e)
         {
+            var credential = new Credential();
+
+            var frame = new Frame
+            {
+                Content = new NewCredentialPage
+                {
+                    DataContext = new NewCredentialState
+                    {
+                        Credential = credential,
+                        OnConfirm = () => CreateNewCredential(credential)
+                    }
+                },
+                NavigationUIVisibility = NavigationUIVisibility.Hidden,
+                MaxWidth = 400
+            };
+
             Flyout.IsOpen = true;
-            var frame = new Frame { Content = new NewOrExistingPage(), NavigationUIVisibility = NavigationUIVisibility.Hidden };
-            frame.MaxWidth = 400;
             Flyout.Content = frame;
+        }
+
+        private void CreateNewCredential(Credential credential)
+        {
+            var category = (string)CategoriesListBox.SelectedItem;
+
+            _safe[category].Add(credential);
+
+            Flyout.IsOpen = false;
         }
 
         private void OnEditCredential(object sender, RoutedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            var oldCredential = (Credential)((FrameworkElement)sender).DataContext;
+            var newCredential = new Credential();
+
+            var frame = new Frame
+            {
+                Content = new EditCredentialPage
+                {
+                    DataContext = new EditCredentialState
+                    {
+                        NewCredential = newCredential,
+                        OldCredential = oldCredential,
+                        OnConfirm = () => EditCredential(oldCredential, newCredential)
+                    }
+                },
+                NavigationUIVisibility = NavigationUIVisibility.Hidden,
+                MaxWidth = 400
+            };
+
+            Flyout.IsOpen = true;
+            Flyout.Content = frame;
+        }
+
+        private void EditCredential(Credential oldCredential, Credential newCredential)
+        {
+            var category = (string)CategoriesListBox.SelectedItem;
+            var credentials = _safe[category];
+            var index = credentials.IndexOf(oldCredential);
+
+            credentials.RemoveAt(index);
+            credentials.Insert(index, newCredential);
+
+            Flyout.IsOpen = false;
         }
 
         private void OnDeleteCredential(object sender, RoutedEventArgs e)

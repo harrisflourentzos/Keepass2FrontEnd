@@ -78,9 +78,11 @@
     <Compile Include="Wizards\EditCredential\EditCredentialPage.xaml.cs">
       <DependentUpon>EditCredentialPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Wizards\EditCredential\EditCredentialState.cs" />
     <Compile Include="Wizards\NewCredential\NewCredentialPage.xaml.cs">
       <DependentUpon>NewCredentialPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Wizards\NewCredential\NewCredentialState.cs" />
     <Compile Include="Wizards\NewOrExistingPage.xaml.cs">
       <DependentUpon>NewOrExistingPage.xaml</DependentUpon>
     </Compile>

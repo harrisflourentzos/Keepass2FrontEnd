@@ -8,6 +8,11 @@
         public string Url { get; set; }
         public string Notes { get; set; }
 
+        public Credential()
+        {
+            
+        }
+
         public Credential(string Title, string UserName, string Password, string Url, string Notes)
         {
             this.Title = Title;
