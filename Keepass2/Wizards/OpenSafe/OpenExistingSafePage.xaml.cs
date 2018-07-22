@@ -1,14 +1,10 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using System.Security;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Navigation;
 using Keepass2.Model;
 using Keepass2.Utilities;
 
-namespace Keepass2
+namespace Keepass2.Wizards.OpenSafe
 {
     /// <summary>
     /// Interaction logic for OpenExistingSafePage.xaml

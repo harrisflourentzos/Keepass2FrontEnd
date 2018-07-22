@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Security;
+using Keepass2.Wizards.NewSafe;
 
 namespace Keepass2.Model
 {

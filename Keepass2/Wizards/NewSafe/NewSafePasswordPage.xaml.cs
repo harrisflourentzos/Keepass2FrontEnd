@@ -1,11 +1,11 @@
-﻿using Keepass2.Model;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Keepass2.Model;
 using Keepass2.Storage;
 using Keepass2.Utilities;
 
-namespace Keepass2
+namespace Keepass2.Wizards.NewSafe
 {
     /// <summary>
     /// Interaction logic for NewSafePasswordPage.xaml
