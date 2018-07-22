@@ -25,7 +25,7 @@ namespace Keepass2.Wizards.NewSafe
             }
             else
             {
-                ((NewSafeState) DataContext).MasterPassword = Extensions.StringToSecureString(((TextBox)sender).Text);
+                ((NewSafeState) DataContext).MasterPassword = ((TextBox)sender).Text.StringToSecureString();
             }
 
         }

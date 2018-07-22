@@ -9,9 +9,9 @@ namespace Keepass2.Utilities
     {
         public static void CopyToClipboard(this string text) => Clipboard.SetText(text);
 
-        public static String SecureStringToString(SecureString value)
+        public static string SecureStringToString(this SecureString value)
         {
-            IntPtr valuePtr = IntPtr.Zero;
+            var valuePtr = IntPtr.Zero;
             try
             {
                 valuePtr = Marshal.SecureStringToGlobalAllocUnicode(value);
@@ -23,17 +23,13 @@ namespace Keepass2.Utilities
             }
         }
 
-        public static SecureString StringToSecureString(string source)
+        public static SecureString StringToSecureString(this string source)
         {
-            if (string.IsNullOrWhiteSpace(source))
-                return null;
-            else
-            {
-                SecureString result = new SecureString();
-                foreach (char c in source.ToCharArray())
-                    result.AppendChar(c);
-                return result;
-            }
+            if (string.IsNullOrWhiteSpace(source)) return null;
+
+            var result = new SecureString();
+            foreach (var c in source) result.AppendChar(c);
+            return result;
         }
     }
 }

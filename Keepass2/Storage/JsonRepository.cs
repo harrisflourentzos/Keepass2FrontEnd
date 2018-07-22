@@ -29,7 +29,7 @@ namespace Keepass2.Storage
             }
 
             tempSafe.Name = safe.Name;
-            tempSafe.Password = Extensions.SecureStringToString(safe.Password);
+            tempSafe.Password = safe.Password.SecureStringToString();
             tempSafe.Content = tempContent;
             #endregion
 
@@ -63,7 +63,7 @@ namespace Keepass2.Storage
                 }
 
                 safe.Name = tempSafe.Name;
-                safe.Password = Extensions.StringToSecureString(tempSafe.Password);
+                safe.Password = tempSafe.Password.StringToSecureString();
                 safe.Location = location.Substring(0, location.LastIndexOf("\\"));
 
                 #endregion

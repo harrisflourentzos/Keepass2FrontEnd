@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Keepass2.Utilities;
 
 namespace Keepass2.Wizards.NewCredential
 {
@@ -37,7 +38,8 @@ namespace Keepass2.Wizards.NewCredential
 
         private void OnPasswordChanged(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            ((NewCredentialState)DataContext).Credential.Password = 
+                sender is PasswordBox box ? box.Password : ((TextBox)sender).Text;
         }
 
         private void OnRevealPassword(object sender, MouseButtonEventArgs e)
@@ -66,15 +68,9 @@ namespace Keepass2.Wizards.NewCredential
 
         private void OnCopyPassword(object sender, MouseButtonEventArgs e)
         {
-            if (PasswordBox.Visibility == Visibility.Hidden)
-            {
-                Clipboard.SetText(PasswordBox.Password);
-            }
-            else
-            {
-                Clipboard.SetText(FakePasswordBox.Text);
-            }
-
+            Clipboard.SetText(PasswordBox.Visibility == Visibility.Hidden
+                ? PasswordBox.Password
+                : FakePasswordBox.Text);
         }
 
         private void OnGeneratePassword(object sender, MouseButtonEventArgs e)

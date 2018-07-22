@@ -18,7 +18,7 @@ namespace Keepass2.Wizards.OpenSafe
 
         private void OnDone(object sender, RoutedEventArgs e)
         {
-            if (PasswordBox.Password == Extensions.SecureStringToString(((Safe)DataContext).Password) || FakePasswordBox.Text == Extensions.SecureStringToString(((Safe)DataContext).Password))
+            if (PasswordBox.Password == ((Safe)DataContext).Password.SecureStringToString() || FakePasswordBox.Text == ((Safe)DataContext).Password.SecureStringToString())
             {
                 NavigationService.Navigate(new SafeBrowserPage((Safe)DataContext));
             }
