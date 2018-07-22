@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Keepass2.Utilities;
 
 namespace Keepass2.Wizards.NewCredential
 {
@@ -26,14 +15,9 @@ namespace Keepass2.Wizards.NewCredential
             InitializeComponent();
         }
 
-        private void OnDone(object sender, MouseButtonEventArgs e)
+        private void OnNext(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
-        }
-
-        private void OnBack(object sender, MouseButtonEventArgs e)
-        {
-            throw new NotImplementedException();
+            NavigationService.Navigate(new NewCredentialPage2 { DataContext = DataContext });
         }
 
         private void OnPasswordChanged(object sender, RoutedEventArgs e)
