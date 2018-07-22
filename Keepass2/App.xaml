@@ -6,7 +6,8 @@
     <Application.Resources>
         <SolidColorBrush x:Key="MyBlue"
                          Color="#3385FF"></SolidColorBrush>
-        <Style TargetType="TextBlock">
+        <Style x:Key="TitleTextBlock"
+               TargetType="TextBlock">
             <Setter Property="Background"
                     Value="{StaticResource MyBlue}"></Setter>
             <Setter Property="Foreground"

@@ -15,7 +15,8 @@
             <TextBlock FontSize="30"
                        Height="60"
                        FontWeight="Bold"
-                       TextAlignment="Center">
+                       TextAlignment="Center"
+                       Style="{StaticResource TitleTextBlock}">
             Open Safe: Step 1/1
             </TextBlock>
             <Grid Background="{StaticResource MyBlue}">
@@ -115,7 +116,8 @@
                        Grid.Column="1"
                        MaxHeight="40"
                        MaxWidth="400"
-                       Text="{Binding Name}"></TextBlock>
+                       Text="{Binding Name}"
+                       Style="{StaticResource TitleTextBlock}"></TextBlock>
             <PasswordBox x:Name="PasswordBox"
                          Margin="0,0,10,0"
                          Grid.Row="1"

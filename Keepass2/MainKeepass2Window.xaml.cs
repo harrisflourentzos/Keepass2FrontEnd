@@ -2,13 +2,14 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using MahApps.Metro.Controls;
 
 namespace Keepass2
 {
     /// <summary>
     /// Interaction logic for MainKeepass2Window.xaml
     /// </summary>
-    public partial class MainKeepass2Window : Window
+    public partial class MainKeepass2Window : MetroWindow
     {
         private readonly List<TabItem> _tabItems = new List<TabItem>();
         private readonly TabItem _tabAdd = new TabItem { Header = "+" };
