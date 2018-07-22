@@ -1,6 +1,6 @@
 ﻿using System.Security;
 
-namespace Keepass2
+namespace Keepass2.Wizards.NewSafe
 {
     public class NewSafeState
     {

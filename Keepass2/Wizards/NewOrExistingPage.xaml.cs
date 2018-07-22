@@ -1,13 +1,12 @@
 ﻿using System;
-using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using Keepass2.Model;
 using Keepass2.Storage;
+using Keepass2.Wizards.NewSafe;
+using Keepass2.Wizards.OpenSafe;
 using Microsoft.WindowsAPICodePack.Dialogs;
-using Newtonsoft.Json;
 
-namespace Keepass2
+namespace Keepass2.Wizards
 {
     /// <summary>
     /// Interaction logic for NewOrExistingPage.xaml

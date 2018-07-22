@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
-namespace Keepass2
+namespace Keepass2.Wizards.NewSafe
 {
     /// <summary>
     /// Interaction logic for NewSafeLocationPage.xaml

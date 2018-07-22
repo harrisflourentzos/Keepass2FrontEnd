@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using Keepass2.Wizards;
 using MahApps.Metro.Controls;
 
 namespace Keepass2

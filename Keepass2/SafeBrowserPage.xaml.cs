@@ -5,6 +5,7 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using Keepass2.Model;
 using Keepass2.Utilities;
+using Keepass2.Wizards;
 
 namespace Keepass2
 {
