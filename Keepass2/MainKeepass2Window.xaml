@@ -9,23 +9,6 @@
         Height="450"
         Width="800">
     <Grid>
-        <!--<TabControl>
-            <TabItem BorderBrush="#FF5168E5"
-                     Background="#FF6A7AED">
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="icons/safe-box.png"
-                               Height="30"
-                               Width="30"
-                               Margin="5"></Image>
-                        <TextBlock VerticalAlignment="Center"
-                                   Background="{x:Null}"
-                                   Foreground="{StaticResource MyBlue}"
-                                   FontWeight="Bold">Welcome</TextBlock>
-                    </StackPanel>
-                </TabItem.Header>
-            </TabItem>
-        </TabControl>-->
 
         <TabControl Name="SafeBrowser"
                     ItemsSource="{Binding}"
@@ -34,17 +17,27 @@
                 <DataTemplate x:Key="TabHeader"
                               DataType="TabItem">
                     <DockPanel>
+                        <Image Source="icons/safe-box.png"
+                               Height="30"
+                               Width="30"
+                               Margin="5"></Image>
                         <Button Name="btnDelete"
                                 DockPanel.Dock="Right"
                                 Margin="5,0,0,0"
                                 Padding="0"
                                 Click="OnTabDeleted"
-                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}}">
+                                Height="17"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}}"
+                                Background="White">
                             <Image Source="icons/delete.png"
-                                   Height="11"
-                                   Width="11"></Image>
+                                   Height="15"
+                                   Width="15"></Image>
                         </Button>
-                        <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=TabItem }, Path=Header}" />
+                        <TextBlock Background="{x:Null}"
+                                   Foreground="{StaticResource MyBlue}"
+                                   FontWeight="Bold"
+                                   VerticalAlignment="Center"
+                                   Text="{Binding RelativeSource={RelativeSource AncestorType=TabItem }, Path=Header}" />
                     </DockPanel>
                 </DataTemplate>
                 <Style TargetType="TextBox">
