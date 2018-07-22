@@ -42,6 +42,43 @@ namespace Keepass2.Wizards.NewCredential
 
         private void OnRevealPassword(object sender, MouseButtonEventArgs e)
         {
+            if (FakePasswordBox.Visibility == Visibility.Hidden)
+            {
+                FakePasswordBox.Visibility = Visibility.Visible;
+                PasswordBox.Visibility = Visibility.Hidden;
+                FakePasswordBox.Text = PasswordBox.Password;
+
+                RepeatFakePasswordBox.Visibility = Visibility.Visible;
+                RepeatPasswordBox.Visibility = Visibility.Hidden;
+                RepeatFakePasswordBox.Text = RepeatPasswordBox.Password;
+            }
+            else
+            {
+                FakePasswordBox.Visibility = Visibility.Hidden;
+                PasswordBox.Visibility = Visibility.Visible;
+                PasswordBox.Password = FakePasswordBox.Text;
+
+                RepeatFakePasswordBox.Visibility = Visibility.Hidden;
+                RepeatPasswordBox.Visibility = Visibility.Visible;
+                RepeatPasswordBox.Password = RepeatFakePasswordBox.Text;
+            }
+        }
+
+        private void OnCopyPassword(object sender, MouseButtonEventArgs e)
+        {
+            if (PasswordBox.Visibility == Visibility.Hidden)
+            {
+                Clipboard.SetText(PasswordBox.Password);
+            }
+            else
+            {
+                Clipboard.SetText(FakePasswordBox.Text);
+            }
+
+        }
+
+        private void OnGeneratePassword(object sender, MouseButtonEventArgs e)
+        {
             throw new NotImplementedException();
         }
     }

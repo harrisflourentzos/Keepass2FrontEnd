@@ -81,6 +81,9 @@
     <Compile Include="Wizards\NewCredential\NewCredentialPage.xaml.cs">
       <DependentUpon>NewCredentialPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Wizards\NewCredential\NewCredentialPage2.xaml.cs">
+      <DependentUpon>NewCredentialPage2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Wizards\NewOrExistingPage.xaml.cs">
       <DependentUpon>NewOrExistingPage.xaml</DependentUpon>
     </Compile>
@@ -123,6 +126,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Wizards\NewCredential\NewCredentialPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Wizards\NewCredential\NewCredentialPage2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -208,6 +215,8 @@
   <ItemGroup>
     <Resource Include="icons\add.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="icons\password.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
