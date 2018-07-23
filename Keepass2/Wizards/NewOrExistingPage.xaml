@@ -51,7 +51,7 @@
             <Image Grid.Column="1"
                    Grid.Row="0"
                    Margin="5,0"
-                   Source="../icons/safe-box.png"></Image>
+                   Source="../icons/newSafe.png"></Image>
             <Ellipse Fill="White"
                      Height="10"
                      Width="10"
@@ -60,7 +60,7 @@
             <Image Grid.Column="1"
                    Grid.Row="1"
                    Margin="5,0"
-                   Source="../icons/safe-box.png"></Image>
+                   Source="../icons/openSafe.png"></Image>
         </Grid>
 
         <Grid>
@@ -71,7 +71,7 @@
             <StackPanel HorizontalAlignment="Right"
                         VerticalAlignment="Center"
                         Margin="70,100">
-                <Image Source="../icons/safe-box.png"
+                <Image Source="../icons/newSafe.png"
                        Style="{StaticResource ClickableImage}"
                        MouseLeftButtonDown="OnCreateNew"
                        Height="200"
@@ -87,7 +87,7 @@
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
                         Margin="70,100">
-                <Image Source="../icons/safe-box.png"
+                <Image Source="../icons/openSafe.png"
                        Style="{StaticResource ClickableImage}"
                        MouseLeftButtonDown="OnOpenExisting"
                        Height="200"

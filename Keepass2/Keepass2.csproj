@@ -221,5 +221,11 @@
   <ItemGroup>
     <Resource Include="icons\password.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\newSafe.png" />
+    <Resource Include="icons\openSafe.png" />
+    <Resource Include="icons\save.png" />
+    <Resource Include="icons\settings-work-tool.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
