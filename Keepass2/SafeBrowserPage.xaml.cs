@@ -69,7 +69,8 @@ namespace Keepass2
                     }
                 },
                 NavigationUIVisibility = NavigationUIVisibility.Hidden,
-                MaxWidth = 400
+                MaxWidth = 400,
+                VerticalAlignment = VerticalAlignment.Stretch
             };
 
             Flyout.IsOpen = true;
@@ -102,7 +103,8 @@ namespace Keepass2
                     }
                 },
                 NavigationUIVisibility = NavigationUIVisibility.Hidden,
-                MaxWidth = 400
+                MaxWidth = 400,
+                VerticalAlignment = VerticalAlignment.Stretch
             };
 
             Flyout.IsOpen = true;
