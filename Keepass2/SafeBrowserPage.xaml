@@ -134,7 +134,8 @@
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                 </ListView>
-                <Image Source="icons/new.png"
+                <Image x:Name="NewCredentialButton"
+                       Source="icons/new.png"
                        Width="70"
                        Height="70"
                        HorizontalAlignment="Right"
