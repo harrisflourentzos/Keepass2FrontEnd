@@ -147,7 +147,7 @@
                 <Controls:FlyoutsControl>
                     <Controls:Flyout x:Name="Flyout"
                                      IsOpen="False"
-                                     Header="Flyout"
+                                     TitleVisibility="Hidden"
                                      Position="Right"
                                      Width="500"
                                      Theme="Accent">
