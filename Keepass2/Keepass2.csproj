@@ -75,10 +75,18 @@
     <Compile Include="MainKeepass2Window.xaml.cs">
       <DependentUpon>MainKeepass2Window.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Wizards\EditCategory\EditCategoryPage.xaml.cs">
+      <DependentUpon>EditCategoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\EditCategory\EditCategoryState.cs" />
     <Compile Include="Wizards\EditCredential\EditCredentialPage.xaml.cs">
       <DependentUpon>EditCredentialPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Wizards\EditCredential\EditCredentialState.cs" />
+    <Compile Include="Wizards\NewCategory\NewCategoryPage.xaml.cs">
+      <DependentUpon>NewCategoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\NewCategory\NewCategoryState.cs" />
     <Compile Include="Wizards\NewCredential\NewCredentialPage.xaml.cs">
       <DependentUpon>NewCredentialPage.xaml</DependentUpon>
     </Compile>
@@ -124,7 +132,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Wizards\EditCategory\EditCategoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Wizards\EditCredential\EditCredentialPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Wizards\NewCategory\NewCategoryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

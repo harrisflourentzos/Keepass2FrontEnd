@@ -63,6 +63,19 @@ namespace Keepass2.Model
             _contents.Remove(name);
         }
 
+        public void RenameGroup(string oldName, string newName)
+        {
+            var index = Groups.IndexOf(oldName);
+
+            Groups.RemoveAt(index);
+            Groups.Insert(index, newName);
+
+            var contents = _contents[oldName];
+
+            _contents.Remove(oldName);
+            _contents[newName] = contents;
+        }
+
         public ObservableCollection<Credential> this[string group] => _contents[group];
 
     }

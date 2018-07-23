@@ -41,6 +41,11 @@
                             </Trigger>
                         </Style.Triggers>
                     </Style>
+                    <Style x:Key="DisabledImage">
+                        <Setter Property="Image.Opacity"
+                                Value="0.2" />
+                        <Setter Property="Image.IsEnabled" Value="False"></Setter>
+                    </Style>
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
