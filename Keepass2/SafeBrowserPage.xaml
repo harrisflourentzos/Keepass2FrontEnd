@@ -139,8 +139,8 @@
                     </ItemsControl.ItemsPanel>
                 </ListView>
                 <Image Source="icons/new.png"
-                       Width="50"
-                       Height="50"
+                       Width="70"
+                       Height="70"
                        HorizontalAlignment="Right"
                        VerticalAlignment="Bottom"
                        Margin="10"

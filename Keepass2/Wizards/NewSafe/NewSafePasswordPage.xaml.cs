@@ -1,6 +1,8 @@
-﻿using System.Windows;
+﻿using System.Runtime.Remoting.Channels;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using Keepass2.Model;
 using Keepass2.Storage;
 using Keepass2.Utilities;
@@ -21,13 +23,29 @@ namespace Keepass2.Wizards.NewSafe
         {
             if (sender is PasswordBox)
             {
+                //FakePasswordBox.Text = ((PasswordBox) sender).Password;
                 ((NewSafeState)DataContext).MasterPassword = ((PasswordBox)sender).SecurePassword;
             }
             else
             {
+                PasswordBox.Password = ((TextBox)sender).Text;
                 ((NewSafeState) DataContext).MasterPassword = ((TextBox)sender).Text.StringToSecureString();
             }
 
+            ShowPasswordStrength(sender);
+
+        }
+
+        private void OnRepeatPasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (sender is PasswordBox)
+            {
+                //RepeatFakePasswordBox.Text = ((PasswordBox)sender).Password; 
+            }
+            else
+            {
+                RepeatPasswordBox.Password = ((TextBox)sender).Text;
+            }
         }
 
         private void OnDone(object sender, MouseButtonEventArgs e)
@@ -61,11 +79,34 @@ namespace Keepass2.Wizards.NewSafe
             {
                 FakePasswordBox.Visibility = Visibility.Hidden;
                 PasswordBox.Visibility = Visibility.Visible;
-                PasswordBox.Password = FakePasswordBox.Text;
 
                 RepeatFakePasswordBox.Visibility = Visibility.Hidden;
                 RepeatPasswordBox.Visibility = Visibility.Visible;
-                RepeatPasswordBox.Password = RepeatFakePasswordBox.Text;
+            }
+        }
+
+        private void ShowPasswordStrength(object sender)
+        {
+            var characters = new int();
+
+            characters = sender is PasswordBox ? PasswordBox.Password.Length : FakePasswordBox.Text.Length;
+
+            PasswordRectangle.Width = 8 * characters;
+            PasswordRectangle.Opacity = 0.7;
+            CharacterTextBlock.Text = "Characters: " + characters;
+
+            if (characters <= 10)
+            {
+                PasswordRectangle.Fill = new SolidColorBrush(Colors.Red);
+
+            }
+            else if (characters > 10 && characters <= 20)
+            {
+                PasswordRectangle.Fill = new SolidColorBrush(Colors.Yellow);
+            }
+            else
+            {
+                PasswordRectangle.Fill = new SolidColorBrush(Colors.Green);
             }
         }
     }

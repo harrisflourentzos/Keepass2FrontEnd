@@ -27,12 +27,16 @@ namespace Keepass2.Wizards.NewCredential
 
         private void OnDone(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
+            ((NewCredentialState) DataContext).Credential.Title = TitleTextBox.Text;
+            ((NewCredentialState) DataContext).Credential.Url = UrlTextBox.Text;
+            ((NewCredentialState) DataContext).Credential.Notes = NotesTextBox.Text;
+
+            ((NewCredentialState) DataContext).OnConfirm();
         }
 
         private void OnBack(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
+            NavigationService.Navigate(new NewCredentialPage() {DataContext = DataContext});
         }
     }
 }
