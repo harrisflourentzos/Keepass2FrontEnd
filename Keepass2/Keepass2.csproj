@@ -107,6 +107,7 @@
     <Compile Include="Storage\JsonRepository.cs" />
     <Compile Include="Storage\Repository.cs" />
     <Compile Include="Utilities\Extensions.cs" />
+    <Compile Include="Wizards\OpenSafe\OpenSafeState.cs" />
     <Page Include="MainKeepass2Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

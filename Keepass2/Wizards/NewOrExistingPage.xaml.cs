@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using Keepass2.Model;
 using Keepass2.Storage;
 using Keepass2.Wizards.NewSafe;
 using Keepass2.Wizards.OpenSafe;
@@ -20,7 +21,13 @@ namespace Keepass2.Wizards
 
         private void OnCreateNew(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new NewSafeLocationPage() { DataContext = new NewSafeState() });
+            NavigationService.Navigate(new NewSafeLocationPage
+            {
+                DataContext = new NewSafeState
+                {
+                    OnCompletion = (Action<Safe>)DataContext
+                }
+            });
         }
 
         private void OnOpenExisting(object sender, RoutedEventArgs e)
@@ -33,7 +40,16 @@ namespace Keepass2.Wizards
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
                 Repository.Instance = new JsonRepository();
-                NavigationService.Navigate(new OpenExistingSafePage() { DataContext = Repository.Instance.Load(dialog.FileName) });
+                var safe = Repository.Instance.Load(dialog.FileName);
+
+                NavigationService.Navigate(new OpenExistingSafePage
+                {
+                    DataContext = new OpenSafeState
+                    {
+                        Safe = safe,
+                        OnCompletion = (Action<Safe>)DataContext
+                    }
+                });
             }
         }
 

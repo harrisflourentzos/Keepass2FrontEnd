@@ -1,4 +1,6 @@
-﻿using System.Security;
+﻿using System;
+using System.Security;
+using Keepass2.Model;
 
 namespace Keepass2.Wizards.NewSafe
 {
@@ -7,5 +9,6 @@ namespace Keepass2.Wizards.NewSafe
         public string Name { get; set; }
         public string Location { get; set; }
         public SecureString MasterPassword { get; set; }
+        public Action<Safe> OnCompletion { get; set; }
     }
 }

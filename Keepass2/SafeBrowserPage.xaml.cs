@@ -5,7 +5,6 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using Keepass2.Model;
 using Keepass2.Utilities;
-using Keepass2.Wizards;
 using Keepass2.Wizards.EditCredential;
 using Keepass2.Wizards.NewCredential;
 
@@ -70,7 +69,8 @@ namespace Keepass2
                     }
                 },
                 NavigationUIVisibility = NavigationUIVisibility.Hidden,
-                MaxWidth = 400
+                MaxWidth = 400,
+                VerticalAlignment = VerticalAlignment.Stretch
             };
 
             Flyout.IsOpen = true;
@@ -103,7 +103,8 @@ namespace Keepass2
                     }
                 },
                 NavigationUIVisibility = NavigationUIVisibility.Hidden,
-                MaxWidth = 400
+                MaxWidth = 400,
+                VerticalAlignment = VerticalAlignment.Stretch
             };
 
             Flyout.IsOpen = true;

@@ -26,19 +26,19 @@ namespace Keepass2.Wizards.NewSafe
 
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
-                ((NewSafeState) DataContext).Location = dialog.FileName;
+                ((NewSafeState)DataContext).Location = dialog.FileName;
                 LocationTextBlock.Text = dialog.FileName;
             }
         }
 
         private void OnNext(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new NewSafePasswordPage() { DataContext = DataContext });
+            NavigationService.Navigate(new NewSafePasswordPage { DataContext = DataContext });
         }
 
         private void OnBack(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new NewOrExistingPage() { DataContext = new NewSafeState() });
+            NavigationService.Navigate(new NewOrExistingPage { DataContext = new NewSafeState() });
         }
     }
 }

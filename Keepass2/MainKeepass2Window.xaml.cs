@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using Keepass2.Model;
 using Keepass2.Wizards;
 using MahApps.Metro.Controls;
 
@@ -42,7 +44,7 @@ namespace Keepass2
             };
 
             // add controls to tab item
-            var frame = new Frame { Content = new NewOrExistingPage(), NavigationUIVisibility = NavigationUIVisibility.Hidden };
+            var frame = new Frame { Content = new NewOrExistingPage{ DataContext = (Action<Safe>)(safe => tab.Header = safe.Name)}, NavigationUIVisibility = NavigationUIVisibility.Hidden };
             tab.Content = frame;
 
             // insert tab item right before the last (+) tab item

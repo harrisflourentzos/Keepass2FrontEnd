@@ -1,5 +1,4 @@
-﻿using System.Runtime.Remoting.Channels;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -29,7 +28,7 @@ namespace Keepass2.Wizards.NewSafe
             else
             {
                 PasswordBox.Password = ((TextBox)sender).Text;
-                ((NewSafeState) DataContext).MasterPassword = ((TextBox)sender).Text.StringToSecureString();
+                ((NewSafeState)DataContext).MasterPassword = ((TextBox)sender).Text.StringToSecureString();
             }
 
             ShowPasswordStrength(sender);
@@ -55,12 +54,14 @@ namespace Keepass2.Wizards.NewSafe
             Repository.Instance = new JsonRepository();
             Repository.Instance.Save(newSafe);
 
+            ((NewSafeState) DataContext).OnCompletion(newSafe);
+
             NavigationService.Navigate(new SafeBrowserPage(newSafe));
         }
 
         private void OnBack(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new NewSafeLocationPage() { DataContext = DataContext });
+            NavigationService.Navigate(new NewSafeLocationPage { DataContext = DataContext });
         }
 
         private void OnRevealPassword(object sender, MouseButtonEventArgs e)

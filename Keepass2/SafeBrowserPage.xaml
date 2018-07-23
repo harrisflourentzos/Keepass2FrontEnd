@@ -28,10 +28,6 @@
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-        
-        
-
-        
     </Page.Resources>
 
     <Grid>
@@ -98,19 +94,19 @@
                                     <MenuItem Header="Copy User Name"
                                               Click="OnCopyUserName">
                                         <MenuItem.Icon>
-                                            <Image Source="icons/copy.png"></Image>
+                                            <Image Source="icons/copy.png" Width="16" Height="16"></Image>
                                         </MenuItem.Icon>
                                     </MenuItem>
                                     <MenuItem Header="Copy Password"
                                               Click="OnCopyPassword">
                                         <MenuItem.Icon>
-                                            <Image Source="icons/copy.png"></Image>
+                                            <Image Source="icons/copy.png" Width="16" Height="16"></Image>
                                         </MenuItem.Icon>
                                     </MenuItem>
                                     <MenuItem Header="Open URL"
                                               Click="OnOpenUrl">
                                         <MenuItem.Icon>
-                                            <Image Source="icons/web.png"></Image>
+                                            <Image Source="icons/web.png" Width="16" Height="16"></Image>
                                         </MenuItem.Icon>
                                     </MenuItem>
 
@@ -119,13 +115,13 @@
                                     <MenuItem Header="Edit..."
                                               Click="OnEditCredential">
                                         <MenuItem.Icon>
-                                            <Image Source="icons/edit.png"></Image>
+                                            <Image Source="icons/edit.png" Width="16" Height="16"></Image>
                                         </MenuItem.Icon>
                                     </MenuItem>
                                     <MenuItem Header="Delete"
                                               Click="OnDeleteCredential">
                                         <MenuItem.Icon>
-                                            <Image Source="icons/delete.png"></Image>
+                                            <Image Source="icons/delete.png" Width="16" Height="16"></Image>
                                         </MenuItem.Icon>
                                     </MenuItem>
                                 </MenuItem>
@@ -151,7 +147,7 @@
                 <Controls:FlyoutsControl>
                     <Controls:Flyout x:Name="Flyout"
                                      IsOpen="False"
-                                     Header="Flyout"
+                                     TitleVisibility="Hidden"
                                      Position="Right"
                                      Width="500"
                                      Theme="Accent">

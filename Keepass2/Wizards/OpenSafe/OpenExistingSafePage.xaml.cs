@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using Keepass2.Model;
 using Keepass2.Utilities;
 
 namespace Keepass2.Wizards.OpenSafe
@@ -18,9 +17,13 @@ namespace Keepass2.Wizards.OpenSafe
 
         private void OnDone(object sender, RoutedEventArgs e)
         {
-            if (PasswordBox.Password == ((Safe)DataContext).Password.SecureStringToString() || FakePasswordBox.Text == ((Safe)DataContext).Password.SecureStringToString())
+            var state = (OpenSafeState) DataContext;
+            var password = state.Safe.Password.SecureStringToString();
+
+            if (PasswordBox.Password == password || FakePasswordBox.Text == password)
             {
-                NavigationService.Navigate(new SafeBrowserPage((Safe)DataContext));
+                state.OnCompletion(state.Safe);
+                NavigationService.Navigate(new SafeBrowserPage(state.Safe));
             }
             else
             {

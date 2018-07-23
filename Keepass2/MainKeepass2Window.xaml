@@ -6,7 +6,7 @@
                       xmlns:local="clr-namespace:Keepass2"
                       xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
                       mc:Ignorable="d"
-                      Title="MainKeepass2Window"
+                      Title="Keepass2"
                       Height="450"
                       Width="800">
 
