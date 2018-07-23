@@ -22,8 +22,10 @@ namespace Keepass2.Wizards.NewCredential
 
         private void OnPasswordChanged(object sender, RoutedEventArgs e)
         {
-            ((NewCredentialState)DataContext).Credential.Password = 
-                sender is PasswordBox box ? box.Password : ((TextBox)sender).Text;
+            if (sender is PasswordBox)
+                ((NewCredentialState) DataContext).Credential.Password = ((PasswordBox)sender).Password;
+            else
+                ((NewCredentialState) DataContext).Credential.Password = ((TextBox) sender).Text;
         }
 
         private void OnRevealPassword(object sender, MouseButtonEventArgs e)

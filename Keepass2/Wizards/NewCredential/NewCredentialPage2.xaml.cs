@@ -27,10 +27,6 @@ namespace Keepass2.Wizards.NewCredential
 
         private void OnDone(object sender, MouseButtonEventArgs e)
         {
-            ((NewCredentialState) DataContext).Credential.Title = TitleTextBox.Text;
-            ((NewCredentialState) DataContext).Credential.Url = UrlTextBox.Text;
-            ((NewCredentialState) DataContext).Credential.Notes = NotesTextBox.Text;
-
             ((NewCredentialState) DataContext).OnConfirm();
         }
 
