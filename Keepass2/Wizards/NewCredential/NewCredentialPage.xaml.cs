@@ -10,6 +10,8 @@ namespace Keepass2.Wizards.NewCredential
     /// </summary>
     public partial class NewCredentialPage : Page
     {
+        private bool _navigating;
+
         public NewCredentialPage()
         {
             InitializeComponent();
@@ -17,11 +19,14 @@ namespace Keepass2.Wizards.NewCredential
 
         private void OnNext(object sender, MouseButtonEventArgs e)
         {
+            _navigating = true;
             NavigationService.Navigate(new NewCredentialPage2 { DataContext = DataContext });
         }
 
         private void OnPasswordChanged(object sender, RoutedEventArgs e)
         {
+            if (_navigating) return;
+
             if (sender is PasswordBox)
                 ((NewCredentialState) DataContext).Credential.Password = ((PasswordBox)sender).Password;
             else
