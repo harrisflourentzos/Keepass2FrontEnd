@@ -66,6 +66,8 @@ namespace Keepass2
         private void CreateNewCategory(NewCategoryState state)
         {
             _safe.AddGroup(state.Category);
+
+            Flyout.IsOpen = false;
         }
 
         private void OnDeleteCategory(object sender, RoutedEventArgs e)
@@ -108,6 +110,8 @@ namespace Keepass2
         private void EditCategory(EditCategoryState state)
         {
             _safe.RenameGroup(state.OldCategory, state.NewCategory);
+
+            Flyout.IsOpen = false;
         }
 
         private void OnCreateNewCredential(object sender, MouseButtonEventArgs e)
