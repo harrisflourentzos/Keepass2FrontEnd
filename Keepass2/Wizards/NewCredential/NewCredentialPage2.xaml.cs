@@ -24,7 +24,7 @@ namespace Keepass2.Wizards.NewCredential
 
         private void OnBack(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new NewCredentialPage() {DataContext = DataContext});
+            NavigationService.Navigate(new NewCredentialPage {DataContext = DataContext});
         }
     }
 }
