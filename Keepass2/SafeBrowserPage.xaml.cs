@@ -5,7 +5,9 @@ using System.Windows.Input;
 using System.Windows.Navigation;
 using Keepass2.Model;
 using Keepass2.Utilities;
+using Keepass2.Wizards.EditCategory;
 using Keepass2.Wizards.EditCredential;
+using Keepass2.Wizards.NewCategory;
 using Keepass2.Wizards.NewCredential;
 
 namespace Keepass2
@@ -42,7 +44,28 @@ namespace Keepass2
 
         private void OnCreateNewCategory(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
+            var state = new NewCategoryState();
+
+            state.OnConfirm = () => CreateNewCategory(state);
+
+            var frame = new Frame
+            {
+                Content = new NewCategoryPage
+                {
+                    DataContext = state
+                },
+                NavigationUIVisibility = NavigationUIVisibility.Hidden,
+                MaxWidth = 400,
+                VerticalAlignment = VerticalAlignment.Stretch
+            };
+
+            Flyout.IsOpen = true;
+            Flyout.Content = frame;
+        }
+
+        private void CreateNewCategory(NewCategoryState state)
+        {
+            _safe.AddGroup(state.Category);
         }
 
         private void OnDeleteCategory(object sender, RoutedEventArgs e)
@@ -56,7 +79,35 @@ namespace Keepass2
 
         private void OnEditCategory(object sender, RoutedEventArgs e)
         {
-            throw new System.NotImplementedException();
+            var category = (string)CategoriesListBox.SelectedItem;
+
+            if (category == null) return;
+
+            var state = new EditCategoryState
+            {
+                OldCategory = category
+            };
+
+            state.OnConfirm = () => EditCategory(state);
+
+            var frame = new Frame
+            {
+                Content = new EditCategoryPage
+                {
+                    DataContext = state
+                },
+                NavigationUIVisibility = NavigationUIVisibility.Hidden,
+                MaxWidth = 400,
+                VerticalAlignment = VerticalAlignment.Stretch
+            };
+
+            Flyout.IsOpen = true;
+            Flyout.Content = frame;
+        }
+
+        private void EditCategory(EditCategoryState state)
+        {
+            _safe.RenameGroup(state.OldCategory, state.NewCategory);
         }
 
         private void OnCreateNewCredential(object sender, MouseButtonEventArgs e)
