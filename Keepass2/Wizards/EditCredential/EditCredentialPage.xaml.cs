@@ -15,6 +15,7 @@ namespace Keepass2.Wizards.EditCredential
         public EditCredentialPage()
         {
             InitializeComponent();
+            DataContextChanged += OnDataContextChanged;
         }
 
         private void OnDone(object sender, MouseButtonEventArgs e)
@@ -25,6 +26,16 @@ namespace Keepass2.Wizards.EditCredential
             ((EditCredentialState) DataContext).NewCredential.Notes = NotesTextBox.Text;
 
             ((EditCredentialState)DataContext).OnConfirm();
+        }
+
+        private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            var password = ((EditCredentialState) DataContext).OldCredential.Password;
+
+            PasswordBox.Password = password;
+            RepeatPasswordBox.Password = password;
+
+            DataContextChanged -= OnDataContextChanged;
         }
 
         private void OnPasswordChanged(object sender, RoutedEventArgs e)
