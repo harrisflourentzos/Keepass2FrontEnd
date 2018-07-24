@@ -6,9 +6,90 @@
       xmlns:local="clr-namespace:Keepass2.Wizards.EditCategory"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="EditCategoryPage">
+      Title="EditCategoryPage"
+      Width="400"
+      Height="600">
 
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <StackPanel Orientation="Vertical"
+                    DockPanel.Dock="Top">
+            <TextBlock FontSize="30"
+                       Height="60"
+                       FontWeight="Bold"
+                       TextAlignment="Center"
+                       Style="{StaticResource TitleTextBlock}">
+                Edit Category
+            </TextBlock>
+            <Grid Background="{StaticResource MyBlue}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="15*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Ellipse Fill="White"
+                         Height="10"
+                         Width="10"
+                         Margin="5"></Ellipse>
+                <TextBlock Grid.Column="2"
+                           Grid.Row="0"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="10">Need to fill this in.</TextBlock>
+            </Grid>
+        </StackPanel>
+
+        <Grid Height="100"
+              DockPanel.Dock="Bottom">
+            <StackPanel HorizontalAlignment="Right"
+                        Margin="0,0,10,0">
+                <Image Source="../../icons/right-arrow.png"
+                       Style="{StaticResource ClickableImage}"
+                       MouseLeftButtonDown="OnDone"
+                       Height="50"
+                       Width="50" />
+                <TextBlock TextAlignment="Center"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource MyBlue}"
+                           Background="{x:Null}">Done</TextBlock>
+            </StackPanel>
+        </Grid>
+
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock FontSize="24"
+                       Margin="10"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       MaxHeight="40"
+                       MaxWidth="300"
+                       Foreground="{StaticResource MyBlue}"
+                       Background="{x:Null}">
+                Category Name:
+            </TextBlock>
+            <TextBox x:Name="CategoryName"
+                     Text="{Binding OldCategory}"
+                     Margin="10"
+                     Grid.Column="1"
+                     MaxHeight="40"
+                     MaxWidth="300">
+            </TextBox>
+        </Grid>
+    </DockPanel>
+
 </Page>
