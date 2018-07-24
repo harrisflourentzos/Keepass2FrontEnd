@@ -23,7 +23,7 @@
             <Grid Background="{StaticResource MyBlue}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="20" />
-                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="15*" />
                 </Grid.ColumnDefinitions>
 
@@ -41,7 +41,7 @@
                            Foreground="White"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Left"
-                           Margin="10">Please choose the name and location of the new Keepass2 safe.</TextBlock>
+                           Margin="10">Please choose the name and location of the new Keepass2 safe. The location can be any folder in your device, including any cloud service avoulable.</TextBlock>
             </Grid>
         </StackPanel>
 
