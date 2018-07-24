@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace Keepass2.Wizards.NewCredential
 {
@@ -19,8 +20,15 @@ namespace Keepass2.Wizards.NewCredential
 
         private void OnNext(object sender, MouseButtonEventArgs e)
         {
-            _navigating = true;
-            NavigationService.Navigate(new NewCredentialPage2 { DataContext = DataContext });
+            if (PasswordBox.Password == RepeatPasswordBox.Password)
+            {
+                _navigating = true;
+                NavigationService.Navigate(new NewCredentialPage2 { DataContext = DataContext });
+            }
+            else
+            {
+                WrongPassTextBlock.Visibility = Visibility.Visible;
+            }
         }
 
         private void OnPasswordChanged(object sender, RoutedEventArgs e)
@@ -28,9 +36,27 @@ namespace Keepass2.Wizards.NewCredential
             if (_navigating) return;
 
             if (sender is PasswordBox)
-                ((NewCredentialState) DataContext).Credential.Password = ((PasswordBox)sender).Password;
+                ((NewCredentialState)DataContext).Credential.Password = ((PasswordBox)sender).Password;
             else
-                ((NewCredentialState) DataContext).Credential.Password = ((TextBox) sender).Text;
+            {
+                PasswordBox.Password = ((TextBox)sender).Text;
+                ((NewCredentialState)DataContext).Credential.Password = ((TextBox)sender).Text;
+            }
+
+            ShowPasswordStrength(sender);
+            WrongPassTextBlock.Visibility = Visibility.Hidden;
+        }
+
+        private void OnRepeatPasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (sender is PasswordBox)
+            {
+            }
+            else
+            {
+                RepeatPasswordBox.Password = ((TextBox)sender).Text;
+                WrongPassTextBlock.Visibility = Visibility.Hidden;
+            }
         }
 
         private void OnRevealPassword(object sender, MouseButtonEventArgs e)
@@ -67,6 +93,31 @@ namespace Keepass2.Wizards.NewCredential
         private void OnGeneratePassword(object sender, MouseButtonEventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        private void ShowPasswordStrength(object sender)
+        {
+            var characters = new int();
+
+            characters = sender is PasswordBox ? PasswordBox.Password.Length : FakePasswordBox.Text.Length;
+
+            PasswordRectangle.Width = 8 * characters;
+            PasswordRectangle.Opacity = 0.7;
+            CharacterTextBlock.Text = "Characters: " + characters;
+
+            if (characters <= 10)
+            {
+                PasswordRectangle.Fill = new SolidColorBrush(Colors.Red);
+
+            }
+            else if (characters > 10 && characters <= 20)
+            {
+                PasswordRectangle.Fill = new SolidColorBrush(Colors.Yellow);
+            }
+            else
+            {
+                PasswordRectangle.Fill = new SolidColorBrush(Colors.Green);
+            }
         }
     }
 }

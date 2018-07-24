@@ -22,7 +22,6 @@ namespace Keepass2.Wizards.NewSafe
         {
             if (sender is PasswordBox)
             {
-                //FakePasswordBox.Text = ((PasswordBox) sender).Password;
                 ((NewSafeState)DataContext).MasterPassword = ((PasswordBox)sender).SecurePassword;
             }
             else
@@ -32,6 +31,7 @@ namespace Keepass2.Wizards.NewSafe
             }
 
             ShowPasswordStrength(sender);
+            WrongPassTextBlock.Visibility = Visibility.Hidden;
 
         }
 
@@ -39,24 +39,32 @@ namespace Keepass2.Wizards.NewSafe
         {
             if (sender is PasswordBox)
             {
-                //RepeatFakePasswordBox.Text = ((PasswordBox)sender).Password; 
             }
             else
             {
                 RepeatPasswordBox.Password = ((TextBox)sender).Text;
+                WrongPassTextBlock.Visibility = Visibility.Hidden;
             }
         }
 
         private void OnDone(object sender, MouseButtonEventArgs e)
         {
-            var newSafe = new Safe((NewSafeState)DataContext);
+            if (PasswordBox.Password == RepeatPasswordBox.Password)
+            {
+                var newSafe = new Safe((NewSafeState)DataContext);
 
-            Repository.Instance = new JsonRepository();
-            Repository.Instance.Save(newSafe);
+                Repository.Instance = new JsonRepository();
+                Repository.Instance.Save(newSafe);
 
-            ((NewSafeState) DataContext).OnCompletion(newSafe);
+                ((NewSafeState)DataContext).OnCompletion(newSafe);
 
-            NavigationService.Navigate(new SafeBrowserPage(newSafe));
+                NavigationService.Navigate(new SafeBrowserPage(newSafe));
+            }
+            else
+            {
+                WrongPassTextBlock.Visibility = Visibility.Visible;
+            }
+           
         }
 
         private void OnBack(object sender, MouseButtonEventArgs e)
