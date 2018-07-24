@@ -20,12 +20,19 @@ namespace Keepass2.Wizards.EditCredential
 
         private void OnDone(object sender, MouseButtonEventArgs e)
         {
-            ((EditCredentialState) DataContext).NewCredential.UserName = UsernameTextBox.Text;
-            ((EditCredentialState) DataContext).NewCredential.Title = TitleTextBox.Text;
-            ((EditCredentialState) DataContext).NewCredential.Url = UrlTextBox.Text;
-            ((EditCredentialState) DataContext).NewCredential.Notes = NotesTextBox.Text;
+            if (PasswordBox.Password == RepeatPasswordBox.Password)
+            {
+                ((EditCredentialState)DataContext).NewCredential.UserName = UsernameTextBox.Text;
+                ((EditCredentialState)DataContext).NewCredential.Title = TitleTextBox.Text;
+                ((EditCredentialState)DataContext).NewCredential.Url = UrlTextBox.Text;
+                ((EditCredentialState)DataContext).NewCredential.Notes = NotesTextBox.Text;
 
-            ((EditCredentialState)DataContext).OnConfirm();
+                ((EditCredentialState)DataContext).OnConfirm();
+            }
+            else
+            {
+                WrongPassTextBlock.Visibility = Visibility.Visible;
+            }
         }
 
         private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -43,9 +50,25 @@ namespace Keepass2.Wizards.EditCredential
             if (sender is PasswordBox)
                 ((EditCredentialState) DataContext).NewCredential.Password = ((PasswordBox)sender).Password;
             else
+            {
+                PasswordBox.Password = ((TextBox)sender).Text;
                 ((EditCredentialState) DataContext).NewCredential.Password = ((TextBox) sender).Text;
+            }
 
             ShowPasswordStrength(sender);
+            WrongPassTextBlock.Visibility = Visibility.Hidden;
+        }
+
+        private void OnRepeatPasswordChange(object sender, RoutedEventArgs e)
+        {
+            if (sender is PasswordBox)
+            {
+            }
+            else
+            {
+                RepeatPasswordBox.Password = ((TextBox)sender).Text;
+            }
+            WrongPassTextBlock.Visibility = Visibility.Hidden;
         }
 
         private void OnRevealPassword(object sender, MouseButtonEventArgs e)

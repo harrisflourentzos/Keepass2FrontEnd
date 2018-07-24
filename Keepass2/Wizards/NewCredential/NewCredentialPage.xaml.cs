@@ -55,8 +55,8 @@ namespace Keepass2.Wizards.NewCredential
             else
             {
                 RepeatPasswordBox.Password = ((TextBox)sender).Text;
-                WrongPassTextBlock.Visibility = Visibility.Hidden;
             }
+            WrongPassTextBlock.Visibility = Visibility.Hidden;
         }
 
         private void OnRevealPassword(object sender, MouseButtonEventArgs e)
