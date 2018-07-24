@@ -36,12 +36,60 @@
                          Height="10"
                          Width="10"
                          Margin="5"></Ellipse>
-                <TextBlock Grid.Column="2"
+                <TextBlock TextWrapping="Wrap"
+                           Grid.Column="2"
                            Grid.Row="0"
                            Foreground="White"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Left"
-                           Margin="10">Please choose the name and location of the new Keepass2 safe. The location can be any folder in your device, including any cloud service avoulable.</TextBlock>
+                           Margin="10">Please choose the name and location of the new Keepass2 <Run FontWeight="Bold"
+                                                                                                    Foreground="Black">Safe</Run>  <InlineUIContainer>
+                    <Image Margin="0,0,2,-5"
+                           Source="../../icons/safe-box.png"
+                           Width="20"
+                           Height="20"></Image>
+                </InlineUIContainer> you are now in the process of creating. The location can be any folder in your device, including any cloud service available.</TextBlock>
+
+                <Ellipse Grid.Column="0"
+                         Grid.Row="1"
+                         Fill="White"
+                         Height="10"
+                         Width="10"
+                         Margin="5"></Ellipse>
+                <TextBlock TextWrapping="Wrap"
+                           Grid.Column="2"
+                           Grid.Row="1"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="10">Your Keepass2 <Run FontWeight="Bold"
+                                                          Foreground="Black">Safe</Run>  <InlineUIContainer>
+                    <Image Margin="0,0,2,-5"
+                           Source="../../icons/safe-box.png"
+                           Width="20"
+                           Height="20"></Image>
+                </InlineUIContainer> will hold
+                    <Run FontWeight="Bold"
+                         Foreground="Black">Categories</Run>
+                    <InlineUIContainer>
+                        <Image Margin="0,0,2,-5"
+                               Source="../../icons/folder.png"
+                               Width="20"
+                               Height="20"></Image>
+                    </InlineUIContainer>
+                    , which are regular folders. You can populate these folders with
+                    <Run FontWeight="Bold"
+                         Foreground="Black">Credentials</Run>
+                    <InlineUIContainer>
+                        <Image Margin="0,0,2,-5"
+                               Source="../../icons/key.png"
+                               Width="20"
+                               Height="20"></Image>
+                    </InlineUIContainer>
+                    , which are sensitive information about your online acounts. These can include usernames, passwords ...
+
+                </TextBlock>
+
             </Grid>
         </StackPanel>
 

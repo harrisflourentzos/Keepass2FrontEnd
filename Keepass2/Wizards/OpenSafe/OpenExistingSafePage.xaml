@@ -108,7 +108,13 @@
                         MaxWidth="400"
                         Foreground="{StaticResource MyBlue}"
                         Background="{x:Null}">
-                Enter Master Password:
+                Enter <Run FontWeight="Bold"
+                           Foreground="#FFF9FA3B">Master Password</Run>  <InlineUIContainer>
+                    <Image Margin="0,0,2,-5"
+                           Source="../../icons/masterPassword.png"
+                           Width="20"
+                           Height="20"></Image>
+                </InlineUIContainer>:
             </TextBlock>
 
             <TextBlock x:Name="SafeNameTextBox" Margin="0,0,10,0"

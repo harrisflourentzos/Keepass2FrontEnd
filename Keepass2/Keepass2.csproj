@@ -83,6 +83,9 @@
       <DependentUpon>EditCredentialPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Wizards\EditCredential\EditCredentialState.cs" />
+    <Compile Include="Wizards\HelpMeChooseMP\HelpMeChooseMP.xaml.cs">
+      <DependentUpon>HelpMeChooseMP.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Wizards\NewCategory\NewCategoryPage.xaml.cs">
       <DependentUpon>NewCategoryPage.xaml</DependentUpon>
     </Compile>
@@ -137,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Wizards\EditCredential\EditCredentialPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Wizards\HelpMeChooseMP\HelpMeChooseMP.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -251,6 +258,12 @@
     <Resource Include="icons\addFolder.png" />
     <Resource Include="icons\deleteFolder.png" />
     <Resource Include="icons\editFolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\masterPassword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\question-mark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

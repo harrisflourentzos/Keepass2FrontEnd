@@ -1,0 +1,55 @@
+﻿<Page x:Class="Keepass2.Wizards.HelpMeChooseMP.HelpMeChooseMP"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Keepass2.Wizards.HelpMeChooseMP"
+      mc:Ignorable="d"
+      d:DesignHeight="450"
+      d:DesignWidth="800"
+      Title="HelpMeChooseMP"
+      Height="600"
+      Width="400">
+
+    <Grid>
+        <StackPanel Orientation="Vertical"
+                    DockPanel.Dock="Top">
+            <TextBlock FontSize="30"
+                       FontWeight="Bold"
+                       TextAlignment="Center"
+                       Style="{StaticResource TitleTextBlock}">
+                How to choose my <Run FontWeight="Bold"
+                                      Foreground="#FFF9FA3B">Master Password</Run>  <InlineUIContainer>
+                    <Image Margin="0,0,2,-5"
+                           Source="../../icons/masterPassword.png"
+                           Width="50"
+                           Height="50"></Image>
+                </InlineUIContainer>
+            </TextBlock>
+            <Grid Background="{StaticResource MyBlue}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="15*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Ellipse Fill="White"
+                         Height="10"
+                         Width="10"
+                         Margin="5"></Ellipse>
+                <TextBlock Grid.Column="2"
+                           Grid.Row="0"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="10">Need to fill this in.</TextBlock>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>
+

@@ -118,5 +118,10 @@ namespace Keepass2.Wizards.NewSafe
                 PasswordRectangle.Fill = new SolidColorBrush(Colors.Green);
             }
         }
+
+        private void OnHelpMeChoose(object sender, MouseButtonEventArgs e)
+        {
+            Flyout.IsOpen = true;
+        }
     }
 }
