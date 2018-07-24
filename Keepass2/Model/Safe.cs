@@ -13,6 +13,7 @@ namespace Keepass2.Model
         public SecureString Password { get; set; }
         public string Location { get; set; }
         public ObservableCollection<string> Groups { get; } = new ObservableCollection<string>();
+        public bool PendingChanges { get; set; }
 
         public Safe()
         {

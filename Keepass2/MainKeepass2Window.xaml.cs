@@ -43,8 +43,14 @@ namespace Keepass2
                 HeaderTemplate = SafeBrowser.FindResource("TabHeader") as DataTemplate
             };
 
+            void OnSafeLoad(Safe safe)
+            {
+                tab.Header = safe.Name;
+                tab.DataContext = safe;
+            }
+
             // add controls to tab item
-            var frame = new Frame { Content = new NewOrExistingPage{ DataContext = (Action<Safe>)(safe => tab.Header = safe.Name)}, NavigationUIVisibility = NavigationUIVisibility.Hidden };
+            var frame = new Frame { Content = new NewOrExistingPage{ DataContext = (Action<Safe>) OnSafeLoad}, NavigationUIVisibility = NavigationUIVisibility.Hidden };
             tab.Content = frame;
 
             // insert tab item right before the last (+) tab item
@@ -69,7 +75,9 @@ namespace Keepass2
 
             if (tab == null) return;
 
-            if (MessageBox.Show($"Are you sure you want to remove the tab '{tab.Header}'?", "Remove Tab", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            var pendingChanges = (tab.DataContext as Safe)?.PendingChanges ?? false;
+
+            if (!pendingChanges || MessageBox.Show("There are unsaved changes to your safe. Would you like to discard your changes and close this tab?", "Unsaved Changes - Close Tab?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 // get selected tab
                 var selectedTab = SafeBrowser.SelectedItem as TabItem;

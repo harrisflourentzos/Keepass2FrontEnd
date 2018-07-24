@@ -20,8 +20,6 @@ namespace Keepass2
     {
         private readonly Safe _safe;
 
-        public bool PendingChanges { get; set; }
-
         public SafeBrowserPage(Safe safe)
         {
             _safe = safe;
@@ -248,13 +246,13 @@ namespace Keepass2
         private void DisableSaveButton()
         {
             SaveButton.Style = FindResource("DisabledImage") as Style;
-            PendingChanges = false;
+            _safe.PendingChanges = false;
         }
 
         private void EnableSaveButton()
         {
             SaveButton.Style = FindResource("ClickableImage") as Style;
-            PendingChanges = true;
+            _safe.PendingChanges = true;
         }
 
         private void OnSave(object sender, MouseButtonEventArgs e)
