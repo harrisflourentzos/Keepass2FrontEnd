@@ -10,6 +10,7 @@ using Keepass2.Wizards.EditCategory;
 using Keepass2.Wizards.EditCredential;
 using Keepass2.Wizards.NewCategory;
 using Keepass2.Wizards.NewCredential;
+using Keepass2.Wizards.SafeSettings;
 
 namespace Keepass2
 {
@@ -259,6 +260,20 @@ namespace Keepass2
         {
             Repository.Instance.Save(_safe);
             DisableSaveButton();
+        }
+
+        private void OnSafeSettings(object sender, MouseButtonEventArgs e)
+        {
+            var frame = new Frame
+            {
+                Content = new SafeSettingsPage{},
+                NavigationUIVisibility = NavigationUIVisibility.Hidden,
+                MaxWidth = 400,
+                VerticalAlignment = VerticalAlignment.Stretch
+            };
+
+            Flyout.IsOpen = true;
+            Flyout.Content = frame;
         }
     }
 }

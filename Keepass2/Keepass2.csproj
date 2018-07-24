@@ -119,6 +119,9 @@
     <Compile Include="Storage\Repository.cs" />
     <Compile Include="Utilities\Extensions.cs" />
     <Compile Include="Wizards\OpenSafe\OpenSafeState.cs" />
+    <Compile Include="Wizards\SafeSettings\SafeSettingsPage.xaml.cs">
+      <DependentUpon>SafeSettingsPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainKeepass2Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -176,6 +179,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SafeBrowserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Wizards\SafeSettings\SafeSettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

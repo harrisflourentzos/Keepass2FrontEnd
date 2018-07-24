@@ -61,12 +61,12 @@
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Style="{StaticResource ClickableImage}"></Image>
-                <Image Source="icons/settings-work-tool.png"
+                <Image Style="{StaticResource ClickableImage}" Source="icons/settings-work-tool.png"
                        Height="60"
                        Width="60"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Top"
-                       Margin="0,70,0,0"></Image>
+                       Margin="0,70,0,0" MouseLeftButtonDown="OnSafeSettings"></Image>
             </Grid>
             
             <DockPanel DockPanel.Dock="Bottom">
