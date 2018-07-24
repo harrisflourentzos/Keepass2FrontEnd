@@ -44,11 +44,14 @@
                     <TextBlock FontSize="20"
                                Style="{StaticResource TitleTextBlock}">Categories</TextBlock>
                 </StackPanel>
-                <Image Source="icons/save.png"
+                <Image x:Name="SaveButton" 
+                       MouseLeftButtonDown="OnSave"
+                       Source="icons/save.png"
                        Height="60"
                        Width="60"
                        VerticalAlignment="Top"
-                       HorizontalAlignment="Left"></Image>
+                       HorizontalAlignment="Left"
+                       Style="{StaticResource ClickableImage}"></Image>
                 <Image Source="icons/settings-work-tool.png"
                        Height="60"
                        Width="60"

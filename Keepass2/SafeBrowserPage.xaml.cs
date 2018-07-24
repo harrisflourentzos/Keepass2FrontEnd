@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using Keepass2.Model;
+using Keepass2.Storage;
 using Keepass2.Utilities;
 using Keepass2.Wizards.EditCategory;
 using Keepass2.Wizards.EditCredential;
@@ -19,6 +20,8 @@ namespace Keepass2
     {
         private readonly Safe _safe;
 
+        public bool PendingChanges { get; set; }
+
         public SafeBrowserPage(Safe safe)
         {
             _safe = safe;
@@ -30,6 +33,7 @@ namespace Keepass2
             DataContext = safe;
 
             DisableNewCredentialButton();
+            DisableSaveButton();
         }
 
         private void OnCategorySelection(object sender, SelectionChangedEventArgs e)
@@ -68,6 +72,8 @@ namespace Keepass2
             _safe.AddGroup(state.Category);
 
             Flyout.IsOpen = false;
+
+            EnableSaveButton();
         }
 
         private void OnDeleteCategory(object sender, RoutedEventArgs e)
@@ -77,6 +83,8 @@ namespace Keepass2
             if (category == null) return;
 
             _safe.RemoveGroup(category);
+
+            EnableSaveButton();
         }
 
         private void OnEditCategory(object sender, RoutedEventArgs e)
@@ -112,6 +120,8 @@ namespace Keepass2
             _safe.RenameGroup(state.OldCategory, state.NewCategory);
 
             Flyout.IsOpen = false;
+
+            EnableSaveButton();
         }
 
         private void OnCreateNewCredential(object sender, MouseButtonEventArgs e)
@@ -144,6 +154,8 @@ namespace Keepass2
             _safe[category].Add(credential);
 
             Flyout.IsOpen = false;
+
+            EnableSaveButton();
         }
 
         private void OnEditCredential(object sender, RoutedEventArgs e)
@@ -181,6 +193,8 @@ namespace Keepass2
             credentials.Insert(index, newCredential);
 
             Flyout.IsOpen = false;
+
+            EnableSaveButton();
         }
 
         private void OnDeleteCredential(object sender, RoutedEventArgs e)
@@ -191,6 +205,8 @@ namespace Keepass2
             if (credential == null) return;
 
             _safe[category].Remove(credential);
+
+            EnableSaveButton();
         }
 
         private void OnCopyUserName(object sender, RoutedEventArgs e)
@@ -227,6 +243,24 @@ namespace Keepass2
         private void EnableNewCredentialButton()
         {
             NewCredentialButton.Style = FindResource("ClickableImage") as Style;
+        }
+
+        private void DisableSaveButton()
+        {
+            SaveButton.Style = FindResource("DisabledImage") as Style;
+            PendingChanges = false;
+        }
+
+        private void EnableSaveButton()
+        {
+            SaveButton.Style = FindResource("ClickableImage") as Style;
+            PendingChanges = true;
+        }
+
+        private void OnSave(object sender, MouseButtonEventArgs e)
+        {
+            Repository.Instance.Save(_safe);
+            DisableSaveButton();
         }
     }
 }
