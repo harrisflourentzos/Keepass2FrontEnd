@@ -243,5 +243,14 @@
     <Resource Include="icons\save.png" />
     <Resource Include="icons\settings-work-tool.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\addCredential.png" />
+    <Resource Include="icons\addFolder.png" />
+    <Resource Include="icons\deleteFolder.png" />
+    <Resource Include="icons\editFolder.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

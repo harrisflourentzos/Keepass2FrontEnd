@@ -22,7 +22,16 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
                 <ResourceDictionary>
                     <DataTemplate x:Key="Categories">
-                        <TextBlock Text="{Binding}"></TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="icons/folder.png"
+                                   Width="40"
+                                   Height="40"></Image>
+                            <TextBlock Margin="5,0,0,0"
+                                       VerticalAlignment="Center"
+                                       FontSize="16"
+                                       Foreground="{StaticResource MyBlue}"
+                                       Text="{Binding}"></TextBlock>
+                        </StackPanel>
                     </DataTemplate>
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
@@ -44,7 +53,7 @@
                     <TextBlock FontSize="20"
                                Style="{StaticResource TitleTextBlock}">Categories</TextBlock>
                 </StackPanel>
-                <Image x:Name="SaveButton" 
+                <Image x:Name="SaveButton"
                        MouseLeftButtonDown="OnSave"
                        Source="icons/save.png"
                        Height="60"
@@ -59,27 +68,42 @@
                        VerticalAlignment="Top"
                        Margin="0,70,0,0"></Image>
             </Grid>
+            
+            <DockPanel DockPanel.Dock="Bottom">
+                <StackPanel DockPanel.Dock="Left"
+                            Orientation="Horizontal">
+                    <Image Source="icons/deleteFolder.png"
+                           Width="50"
+                           Height="50"
+                           MouseLeftButtonDown="OnDeleteCategory"
+                           Style="{StaticResource ClickableImage}"
+                           VerticalAlignment="Bottom"></Image>
+                    <Image Source="icons/editFolder.png"
+                           Width="50"
+                           Height="50"
+                           MouseLeftButtonDown="OnEditCategory"
+                           Style="{StaticResource ClickableImage}"
+                           VerticalAlignment="Bottom"></Image>
+                </StackPanel>
+                <Image DockPanel.Dock="Right" Source="icons/addFolder.png"
+                       Width="100"
+                       Height="100"
+                       Margin="0,0,0,-5"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Bottom"
+                       MouseLeftButtonDown="OnCreateNewCategory"
+                       Style="{StaticResource ClickableImage}">
+                </Image>
+            </DockPanel>
 
-            <StackPanel DockPanel.Dock="Bottom"
-                        Orientation="Horizontal">
-                <Button Click="OnDeleteCategory">Delete</Button>
-                <Button Click="OnEditCategory">Edit</Button>
-            </StackPanel>
+            
+            
 
             <Grid>
                 <ListBox x:Name="CategoriesListBox"
                          ItemTemplate='{StaticResource Categories}'
                          SelectionChanged="OnCategorySelection">
                 </ListBox>
-                <Image Source="icons/new.png"
-                       Width="50"
-                       Height="50"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Bottom"
-                       Margin="10"
-                       MouseLeftButtonDown="OnCreateNewCategory"
-                       Style="{StaticResource ClickableImage}">
-                </Image>
             </Grid>
         </DockPanel>
 
@@ -168,9 +192,9 @@
                     </ItemsControl.ItemsPanel>
                 </ListView>
                 <Image x:Name="NewCredentialButton"
-                       Source="icons/new.png"
-                       Width="70"
-                       Height="70"
+                       Source="icons/addCredential.png"
+                       Width="150"
+                       Height="150"
                        HorizontalAlignment="Right"
                        VerticalAlignment="Bottom"
                        Margin="0,0,10,9.6"
