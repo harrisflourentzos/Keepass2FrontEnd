@@ -38,6 +38,8 @@ namespace Keepass2.Wizards.OpenSafe
 
         private void OnTextInput(object sender, RoutedEventArgs e)
         {
+            if (!(sender is PasswordBox))
+                PasswordBox.Password = ((TextBox) sender).Text;
             WrongPassTextBlock.Visibility = Visibility.Hidden;
         }
 

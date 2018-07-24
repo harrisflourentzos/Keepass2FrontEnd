@@ -49,13 +49,8 @@ namespace Keepass2.Wizards.NewCredential
 
         private void OnRepeatPasswordChanged(object sender, RoutedEventArgs e)
         {
-            if (sender is PasswordBox)
-            {
-            }
-            else
-            {
-                RepeatPasswordBox.Password = ((TextBox)sender).Text;
-            }
+            if (!(sender is PasswordBox))
+                RepeatPasswordBox.Password = ((TextBox) sender).Text;
             WrongPassTextBlock.Visibility = Visibility.Hidden;
         }
 

@@ -61,10 +61,7 @@ namespace Keepass2.Wizards.EditCredential
 
         private void OnRepeatPasswordChange(object sender, RoutedEventArgs e)
         {
-            if (sender is PasswordBox)
-            {
-            }
-            else
+            if (!(sender is PasswordBox))
             {
                 RepeatPasswordBox.Password = ((TextBox)sender).Text;
             }
