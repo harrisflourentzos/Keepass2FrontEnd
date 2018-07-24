@@ -111,7 +111,7 @@
                 Enter Master Password:
             </TextBlock>
 
-            <TextBlock Margin="0,0,10,0"
+            <TextBlock x:Name="SafeNameTextBox" Margin="0,0,10,0"
                        Grid.Row="0"
                        Grid.Column="1"
                        MaxHeight="40"
