@@ -301,5 +301,8 @@
   <ItemGroup>
     <SplashScreen Include="icons\splashScreen.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\keepass2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

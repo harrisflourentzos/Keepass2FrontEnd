@@ -14,11 +14,12 @@
 
     <StackPanel Orientation="Vertical">
         <TextBlock FontSize="30"
-                   Height="60"
                    FontWeight="Bold"
+                   Height="80"
                    TextAlignment="Center"
                    Style="{StaticResource TitleTextBlock}">
-            Welcome to Keepass2
+            Welcome to Keepass2 <InlineUIContainer> <Image Source="../icons/keepass2.png" Margin="0,0,0,-25" Width="80" Height="80"></Image>
+                </InlineUIContainer>
         </TextBlock>
         <Grid Background="{StaticResource MyBlue}">
             <Grid.ColumnDefinitions>
