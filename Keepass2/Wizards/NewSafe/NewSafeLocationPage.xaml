@@ -123,7 +123,7 @@
             </StackPanel>
         </Grid>
 
-        <Grid Margin="50">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition  Width="Auto" />
                 <ColumnDefinition />
@@ -147,13 +147,15 @@
                      Margin="10"
                      Grid.Column="1"
                      MaxHeight="40"
-                     MaxWidth="300"></TextBox>
+                     MaxWidth="300" Width="300"></TextBox>
+            
             <TextBlock x:Name="LocationTextBlock"
                        Margin="10"
                        Grid.Column="1"
                        Grid.Row="1"
                        MaxHeight="40"
                        MaxWidth="300"
+                       Width="300"
                        Text="{Binding Location}"
                        Style="{StaticResource TitleTextBlock}"></TextBlock>
             <Image  Style="{StaticResource ClickableImage}"

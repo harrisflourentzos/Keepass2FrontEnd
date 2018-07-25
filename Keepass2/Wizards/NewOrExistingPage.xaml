@@ -32,18 +32,47 @@
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
-            <TextBlock Grid.Column="2"
+
+            <TextBlock TextWrapping="Wrap" Grid.Column="2"
                        Grid.Row="0"
                        Foreground="White"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
-                       Margin="10">Use this icon to create a new Keepass2 safe. This is a regular file that will be locked with a master password of your choice.</TextBlock>
+                       Margin="10">Use this icon to create a new Keepass2 <Run FontWeight="Bold"
+                                                                               Foreground="Black">Safe</Run>  <InlineUIContainer>
+                <Image Margin="0,0,2,-5"
+                       Source="../icons/safe-box.png"
+                       Width="20"
+                       Height="20"></Image>
+            </InlineUIContainer>. This is a regular file that will be locked with a <Run FontWeight="Bold"
+                                                                                         Foreground="#FFF9FA3B">Master Password</Run>  <InlineUIContainer>
+                <Image Margin="0,0,2,-5"
+                       Source="../icons/masterPassword.png"
+                       Width="16"
+                       Height="16"></Image>
+            </InlineUIContainer> of your choice. You don't need to worry about the security settings that your new Safe will be created with. We have chosen some very secure default settings for you. You can change those settings by pressing the <Run FontWeight="Bold"
+                                                                                                                                                                                                                                                                                              Foreground="Black">settings</Run>  <InlineUIContainer>
+                <Image Margin="0,0,2,-5"
+                       Source="../icons/settings-work-tool.png"
+                       Width="20"
+                       Height="20"></Image>
+            </InlineUIContainer> button, after you have finished creating the new safe. 
+                
+                </TextBlock>
             <TextBlock Grid.Column="2"
                        Grid.Row="1"
                        Foreground="White"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
-                       Margin="10">Use this icon to open your already created Keepass2 safe(s)</TextBlock>
+                       Margin="10">Use this icon to open your already created Keepass2 <Run FontWeight="Bold"
+                                                                                            Foreground="Black">Safe(s)</Run>  <InlineUIContainer>
+                <Image Margin="0,0,2,-5"
+                       Source="../icons/safe-box.png"
+                       Width="20"
+                       Height="20"></Image>
+            </InlineUIContainer>
+                
+                </TextBlock>
             <Ellipse Fill="White"
                      Height="10"
                      Width="10"
