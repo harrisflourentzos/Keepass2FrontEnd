@@ -144,7 +144,7 @@
                        Background="{x:Null}">
             Safe Name:
             </TextBlock>
-            <TextBox Text="{Binding Mode=OneWayToSource, Path=Name}"
+            <TextBox Text="{Binding Mode=OneWayToSource, Path=Name, UpdateSourceTrigger=PropertyChanged}"
                      Margin="10"
                      Grid.Column="1"
                      MaxHeight="40"

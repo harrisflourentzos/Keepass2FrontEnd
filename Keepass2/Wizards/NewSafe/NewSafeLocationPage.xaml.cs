@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Keepass2.Utilities;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace Keepass2.Wizards.NewSafe
@@ -33,7 +34,19 @@ namespace Keepass2.Wizards.NewSafe
 
         private void OnNext(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new NewSafePasswordPage { DataContext = DataContext });
+            var state = (NewSafeState) DataContext;
+            var error = "";
+            if (state.Name.IsNullOrEmpty()) error += "Please provide a name for your safe.\n";
+            if (state.Location.IsNullOrEmpty()) error += "Please provide a suitable location to store your safe.";
+
+            if (error == "")
+            {
+                NavigationService.Navigate(new NewSafePasswordPage { DataContext = DataContext });
+            }
+            else
+            {
+                MessageBox.Show(error, "Provide required information", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void OnBack(object sender, MouseButtonEventArgs e)

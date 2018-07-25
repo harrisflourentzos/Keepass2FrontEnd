@@ -9,6 +9,8 @@ namespace Keepass2.Utilities
     {
         public static void CopyToClipboard(this string text) => Clipboard.SetText(text);
 
+        public static bool IsNullOrEmpty(this string text) => string.IsNullOrEmpty(text);
+
         public static string SecureStringToString(this SecureString value)
         {
             var valuePtr = IntPtr.Zero;
