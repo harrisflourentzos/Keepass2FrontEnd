@@ -147,7 +147,6 @@ namespace Keepass2
                     }
                 },
                 NavigationUIVisibility = NavigationUIVisibility.Hidden,
-                MaxWidth = 400,
                 VerticalAlignment = VerticalAlignment.Stretch
             };
 
