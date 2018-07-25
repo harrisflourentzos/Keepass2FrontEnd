@@ -32,6 +32,7 @@ namespace Keepass2
             DataContext = safe;
 
             DisableNewCredentialButton();
+            DisableCategoryButtons();
             DisableSaveButton();
         }
 
@@ -41,8 +42,16 @@ namespace Keepass2
 
             CredentialsListView.ItemsSource = category == null ? null : _safe[category];
 
-            if (category == null) DisableNewCredentialButton();
-            else EnableNewCredentialButton();
+            if (category == null)
+            {
+                DisableCategoryButtons();
+                DisableNewCredentialButton();
+            }
+            else
+            {
+                EnableCategeoryButtons();
+                EnableNewCredentialButton();
+            }
         }
 
         private void OnCreateNewCategory(object sender, MouseButtonEventArgs e)
@@ -232,6 +241,18 @@ namespace Keepass2
             {
                 Console.Error.WriteLine(exception);
             }
+        }
+
+        private void DisableCategoryButtons()
+        {
+            DeleteCategoryButton.Style = FindResource("DisabledImage") as Style;
+            EditCategoryButton.Style = FindResource("DisabledImage") as Style;
+        }
+
+        private void EnableCategeoryButtons()
+        {
+            DeleteCategoryButton.Style = FindResource("ClickableImage") as Style;
+            EditCategoryButton.Style = FindResource("ClickableImage") as Style;
         }
 
         private void DisableNewCredentialButton()

@@ -72,13 +72,15 @@
             <DockPanel DockPanel.Dock="Bottom">
                 <StackPanel DockPanel.Dock="Left"
                             Orientation="Horizontal">
-                    <Image Source="icons/deleteFolder.png"
+                    <Image x:Name="DeleteCategoryButton" 
+                           Source="icons/deleteFolder.png"
                            Width="50"
                            Height="50"
                            MouseLeftButtonDown="OnDeleteCategory"
                            Style="{StaticResource ClickableImage}"
                            VerticalAlignment="Bottom"></Image>
-                    <Image Source="icons/editFolder.png"
+                    <Image x:Name="EditCategoryButton" 
+                           Source="icons/editFolder.png"
                            Width="50"
                            Height="50"
                            MouseLeftButtonDown="OnEditCategory"
@@ -95,9 +97,6 @@
                        Style="{StaticResource ClickableImage}">
                 </Image>
             </DockPanel>
-
-            
-            
 
             <Grid>
                 <ListBox x:Name="CategoriesListBox"
