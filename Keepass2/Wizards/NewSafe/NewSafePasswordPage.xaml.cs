@@ -69,7 +69,7 @@ namespace Keepass2.Wizards.NewSafe
 
         private void OnBack(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new NewSafeLocationPage { DataContext = DataContext });
+            NavigationService.GoBack();
         }
 
         private void OnRevealPassword(object sender, MouseButtonEventArgs e)
