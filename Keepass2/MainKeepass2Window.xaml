@@ -43,6 +43,14 @@
                                    Text="{Binding RelativeSource={RelativeSource AncestorType=TabItem }, Path=Header}" />
                     </DockPanel>
                 </DataTemplate>
+
+                <Style TargetType="TabItem">
+                    <Setter Property="BorderBrush"
+                            Value="{StaticResource MyBlue}"></Setter>
+                    <Setter Property="Background"
+                            Value="Gray"></Setter>
+                </Style>
+
                 <Style TargetType="TextBox">
                     <Setter Property="VerticalAlignment"
                             Value="Stretch"></Setter>

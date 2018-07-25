@@ -25,30 +25,32 @@ namespace Keepass2.Model
             Password = newSafeState.MasterPassword;
             Location = newSafeState.Location;
 
+            AddGroup("General");
             AddGroup("Internet");
-            AddGroup("Bank");
+            AddGroup("Email");
+            AddGroup("Banking");
             AddGroup("Windows");
 
-            new List<Credential>
-            {
-                new Credential("Evernote", "keepass@gmail.com", "password1234", "http://evernote.com", "notes"),
-                new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
-                new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
-                new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
-                new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
-                new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
-                new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
-                new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
+            //new List<Credential>
+            //{
+            //    new Credential("Evernote", "keepass@gmail.com", "password1234", "http://evernote.com", "notes"),
+            //    new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
+            //    new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
+            //    new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
+            //    new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
+            //    new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
+            //    new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes"),
+            //    new Credential("Facebook", "keepass@gmail.com", "password1234", "http://facebook.com", "notes")
 
-            }.ForEach(this._contents["Internet"].Add);
+            //}.ForEach(this._contents["Internet"].Add);
 
-            new List<Credential>
-            {
-                new Credential("Royal Bank of Canada", "keepass@gmail.com", "password1234", "http://evernote.com", "notes"),
-                new Credential("BankofScottland", "keepass@gmail.com", "password1234", "http://evernote.com", "notes"),
-                new Credential("BankofCyprus", "keepass@gmail.com", "password1234", "http://facebook.com", "notes")
+            //new List<Credential>
+            //{
+            //    new Credential("Royal Bank of Canada", "keepass@gmail.com", "password1234", "http://evernote.com", "notes"),
+            //    new Credential("BankofScottland", "keepass@gmail.com", "password1234", "http://evernote.com", "notes"),
+            //    new Credential("BankofCyprus", "keepass@gmail.com", "password1234", "http://facebook.com", "notes")
 
-            }.ForEach(this._contents["Bank"].Add);
+            //}.ForEach(this._contents["Bank"].Add);
 
         }
 

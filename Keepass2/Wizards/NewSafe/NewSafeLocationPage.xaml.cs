@@ -38,7 +38,7 @@ namespace Keepass2.Wizards.NewSafe
 
         private void OnBack(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new NewOrExistingPage { DataContext = new NewSafeState() });
+            NavigationService.GoBack();
         }
     }
 }

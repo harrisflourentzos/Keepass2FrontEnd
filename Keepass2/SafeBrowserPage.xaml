@@ -138,7 +138,7 @@
                                         </DockPanel>
                                     </MenuItem.Header>
 
-                                    <MenuItem Header="Copy User Name"
+                                    <MenuItem Header="Copy UserName/Email"
                                               Click="OnCopyUserName">
                                         <MenuItem.Icon>
                                             <Image Source="icons/copy.png"

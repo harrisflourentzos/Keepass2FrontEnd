@@ -33,7 +33,7 @@ namespace Keepass2.Wizards.OpenSafe
 
         private void OnBack(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new NewOrExistingPage());
+            NavigationService.GoBack();
         }
 
         private void OnTextInput(object sender, RoutedEventArgs e)
