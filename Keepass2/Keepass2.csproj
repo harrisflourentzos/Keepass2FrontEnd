@@ -298,5 +298,8 @@
     <Resource Include="icons\EditMP.png" />
     <Resource Include="icons\securitySettings.png" />
   </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="icons\splashScreen.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
