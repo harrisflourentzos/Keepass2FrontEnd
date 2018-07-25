@@ -47,6 +47,8 @@
             </TextBlock>
 
             <Image Grid.Column="1" Grid.Row="0" Margin="0,0,2,-5"
+                   ToolTip="Edit master password"
+                   ToolTipService.ShowOnDisabled="True"
                    Source="../../icons/EditMP.png"
                    Width="80"
                    Height="80" Style="{StaticResource ClickableImage}" MouseLeftButtonDown="OnEditMP"></Image>
@@ -65,6 +67,8 @@
 
             <Image Grid.Column="1"
                    Grid.Row="1"
+                   ToolTip="Security settings"
+                   ToolTipService.ShowOnDisabled="True"
                    Margin="0,0,2,-5"
                    Source="../../icons/securitySettings.png"
                    Width="80"

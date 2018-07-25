@@ -172,6 +172,8 @@
                        Text="{Binding Location}"
                        Style="{StaticResource TitleTextBlock}"></TextBlock>
             <Image  Style="{StaticResource ClickableImage}"
+                    ToolTip="Browse"
+                    ToolTipService.ShowOnDisabled="True"
                     Width="75"
                     Height="60"
                     Margin="20,0,0,0"

@@ -54,6 +54,8 @@
                                Style="{StaticResource TitleTextBlock}">Categories</TextBlock>
                 </StackPanel>
                 <Image x:Name="SaveButton"
+                       ToolTip="Save changes made to your safe"
+                       ToolTipService.ShowOnDisabled="True"
                        MouseLeftButtonDown="OnSave"
                        Source="icons/save.png"
                        Height="60"
@@ -61,7 +63,10 @@
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Style="{StaticResource ClickableImage}"></Image>
-                <Image Style="{StaticResource ClickableImage}" Source="icons/settings-work-tool.png"
+                <Image Style="{StaticResource ClickableImage}" 
+                       ToolTip="Safe settings"
+                       ToolTipService.ShowOnDisabled="True"
+                       Source="icons/settings-work-tool.png"
                        Height="60"
                        Width="60"
                        HorizontalAlignment="Left"
@@ -73,6 +78,8 @@
                 <StackPanel DockPanel.Dock="Left"
                             Orientation="Horizontal">
                     <Image x:Name="DeleteCategoryButton" 
+                           ToolTip="Delete the selected category"
+                           ToolTipService.ShowOnDisabled="True"
                            Source="icons/deleteFolder.png"
                            Width="50"
                            Height="50"
@@ -80,6 +87,8 @@
                            Style="{StaticResource ClickableImage}"
                            VerticalAlignment="Bottom"></Image>
                     <Image x:Name="EditCategoryButton" 
+                           ToolTip="Edit the selected category"
+                           ToolTipService.ShowOnDisabled="True"
                            Source="icons/editFolder.png"
                            Width="50"
                            Height="50"
@@ -88,6 +97,8 @@
                            VerticalAlignment="Bottom"></Image>
                 </StackPanel>
                 <Image DockPanel.Dock="Right" Source="icons/addFolder.png"
+                       ToolTip="Add a new category"
+                       ToolTipService.ShowOnDisabled="True"
                        Width="100"
                        Height="100"
                        Margin="0,0,0,-5"
@@ -191,6 +202,8 @@
                     </ItemsControl.ItemsPanel>
                 </ListView>
                 <Image x:Name="NewCredentialButton"
+                       ToolTip="Add a new credential"
+                       ToolTipService.ShowOnDisabled="True"
                        Source="icons/addCredential.png"
                        Width="150"
                        Height="150"
