@@ -1,0 +1,230 @@
+﻿<Page x:Class="Keepass2.Wizards.SafeSettings.ChangeMPPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Keepass2.Wizards.SafeSettings"
+      mc:Ignorable="d"
+      d:DesignHeight="450"
+      d:DesignWidth="800"
+      Title="ChangeMPPage"
+      Height="600"
+      Width="400">
+
+    <DockPanel>
+        <StackPanel Orientation="Vertical"
+                    DockPanel.Dock="Top">
+            <TextBlock FontSize="30"
+                       FontWeight="Bold"
+                       TextAlignment="Center"
+                       Style="{StaticResource TitleTextBlock}">
+                Change this Safe's <Run FontWeight="Bold"
+                                        Foreground="#FFF9FA3B">Master Password</Run>  <InlineUIContainer>
+                    <Image Margin="0,0,2,-5"
+                           Source="../../icons/masterPassword.png"
+                           Width="50"
+                           Height="50"></Image>
+                </InlineUIContainer>
+            </TextBlock>
+        </StackPanel>
+
+        <Grid Height="100"
+              DockPanel.Dock="Bottom">
+            <StackPanel HorizontalAlignment="Right"
+                        Margin="0,0,10,0">
+                <Image Source="../../icons/right-arrow.png"
+                       Style="{StaticResource ClickableImage}"
+                       MouseLeftButtonDown="OnDone"
+                       Height="50"
+                       Width="50" />
+                <TextBlock TextAlignment="Center"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource MyBlue}"
+                           Background="{x:Null}">Done</TextBlock>
+            </StackPanel>
+        </Grid>
+
+        <Grid Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock FontSize="16"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       MaxHeight="40"
+                       MaxWidth="400"
+                       Foreground="{StaticResource MyBlue}"
+                       Background="{x:Null}">New <Run FontWeight="Bold"
+                                                      Foreground="#FFF9FA3B">Master Password</Run>  <InlineUIContainer>
+                    <Image Margin="0,0,2,-5"
+                           Source="../../icons/masterPassword.png"
+                           Width="20"
+                           Height="20"></Image>
+                </InlineUIContainer>:
+            </TextBlock>
+
+            <PasswordBox Margin="0,0,10,0"
+                         Grid.Row="0"
+                         Grid.Column="1"
+                         x:Name="PasswordBox"
+                         PasswordChanged="OnPasswordChanged"
+                         MaxHeight="40"
+                         MaxWidth="400"></PasswordBox>
+
+            <TextBox x:Name="FakePasswordBox"
+                     Margin="0,0,10,0"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     MaxHeight="40"
+                     MaxWidth="400"
+                     Visibility="Hidden"
+                     Background="White"
+                     Foreground="Black"
+                     TextChanged="OnPasswordChanged">
+            </TextBox>
+
+            <Image Grid.Column="2"
+                   Grid.Row="0"
+                   Width="30"
+                   Height="30"
+                   Style="{StaticResource ClickableImage}"
+                   Source="../../icons/eye.png"
+                   MouseLeftButtonDown="OnRevealPassword"></Image>
+
+            <TextBlock Grid.Column="0"
+                       Grid.Row="1"
+                       DockPanel.Dock="Left"
+                       VerticalAlignment="Center "
+                       HorizontalAlignment="Left"
+                       Foreground="{StaticResource MyBlue}"
+                       x:Name="CharacterTextBlock">Characters: 0</TextBlock>
+            <Rectangle  VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        x:Name="PasswordRectangle"
+                        Width="100"
+                        Height="20"
+                        MaxWidth="200">
+            </Rectangle>
+
+            <TextBlock  Grid.Column="0"
+                        Grid.Row="2"
+                        FontSize="16"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        MaxHeight="40"
+                        MaxWidth="400"
+                        Foreground="{StaticResource MyBlue}"
+                        Background="{x:Null}">
+                Repeat New <Run FontWeight="Bold"
+                                Foreground="#FFF9FA3B">Master Password</Run>  <InlineUIContainer>
+                    <Image Margin="0,0,2,-5"
+                           Source="../../icons/masterPassword.png"
+                           Width="20"
+                           Height="20"></Image>
+                </InlineUIContainer>:
+            </TextBlock>
+
+            <PasswordBox Margin="0,0,10,0"
+                         Grid.Row="2"
+                         Grid.Column="1"
+                         x:Name="RepeatPasswordBox"
+                         MaxHeight="40"
+                         MaxWidth="400"
+                         PasswordChanged="OnRepeatPasswordChange"></PasswordBox>
+
+            <TextBox x:Name="RepeatFakePasswordBox"
+                     Margin="0,0,10,0"
+                     Grid.Row="2"
+                     Grid.Column="1"
+                     MaxHeight="40"
+                     MaxWidth="400"
+                     Visibility="Hidden"
+                     Background="White"
+                     Foreground="Black"
+                     TextChanged="OnRepeatPasswordChange">
+            </TextBox>
+
+            <TextBlock TextWrapping="Wrap"
+                       x:Name="WrongPassTextBlock"
+                       Text="Passwords Do Not Match"
+                       FontSize="12"
+                       Foreground="Red"
+                       TextAlignment="Center"
+                       Margin="0,0,10,0"
+                       Grid.Row="3"
+                       Grid.Column="1"
+                       MaxHeight="40"
+                       MaxWidth="400"
+                       Visibility="Hidden"></TextBlock>
+
+            <TextBlock  Grid.Column="0"
+                        Grid.Row="4"
+                        FontSize="16"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        MaxHeight="40"
+                        MaxWidth="400"
+                        Foreground="{StaticResource MyBlue}"
+                        Background="{x:Null}">
+                Enter Old <Run FontWeight="Bold"
+                               Foreground="#FFF9FA3B">Master Password</Run>  <InlineUIContainer>
+                    <Image Margin="0,0,2,-5"
+                           Source="../../icons/masterPassword.png"
+                           Width="20"
+                           Height="20"></Image>
+                </InlineUIContainer>:
+            </TextBlock>
+
+            <PasswordBox Margin="0,0,10,0"
+                         Grid.Row="4"
+                         Grid.Column="1"
+                         x:Name="OldPasswordBox"
+                         MaxHeight="40"
+                         MaxWidth="400"
+                         PasswordChanged="OnOldPasswordChange"></PasswordBox>
+
+            <TextBox x:Name="FakeOldPasswordBox"
+                     Margin="0,0,10,0"
+                     Grid.Row="4"
+                     Grid.Column="1"
+                     MaxHeight="40"
+                     MaxWidth="400"
+                     Visibility="Hidden"
+                     Background="White"
+                     Foreground="Black"
+                     TextChanged="OnOldPasswordChange">
+            </TextBox>
+
+            <TextBlock  TextWrapping="Wrap"
+                        x:Name="WrongOldPassTextBlock"
+                        Text="Wrong Old Master Password"
+                        FontSize="12"
+                        Foreground="Red"
+                        TextAlignment="Center"
+                        Margin="0,0,10,0"
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        MaxHeight="40"
+                        MaxWidth="400"
+                        Visibility="Hidden"></TextBlock>
+
+        </Grid>
+
+    </DockPanel>
+</Page>

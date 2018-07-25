@@ -1,71 +1,92 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
-
-namespace Keepass2.Wizards.EditCredential
+namespace Keepass2.Wizards.SafeSettings
 {
     /// <summary>
-    /// Interaction logic for EditCredentialPage.xaml
+    /// Interaction logic for ChangeMPPage.xaml
     /// </summary>
-    public partial class EditCredentialPage : Page
+    public partial class ChangeMPPage : Page
     {
-        public EditCredentialPage()
+        public ChangeMPPage()
         {
             InitializeComponent();
-            DataContextChanged += OnDataContextChanged;
+        }
+
+        private void OnOldPasswordChange(object sender, RoutedEventArgs routedEventArgs)
+        {
+            if (sender is PasswordBox)
+            {
+            }
+            else
+            {
+                OldPasswordBox.Password = ((TextBox)sender).Text;
+                WrongOldPassTextBlock.Visibility = Visibility.Hidden;
+            }
         }
 
         private void OnDone(object sender, MouseButtonEventArgs e)
         {
-            if (PasswordBox.Password == RepeatPasswordBox.Password)
-            {
-                ((EditCredentialState)DataContext).NewCredential.UserName = UsernameTextBox.Text;
-                ((EditCredentialState)DataContext).NewCredential.Title = TitleTextBox.Text;
-                ((EditCredentialState)DataContext).NewCredential.Url = UrlTextBox.Text;
-                ((EditCredentialState)DataContext).NewCredential.Notes = NotesTextBox.Text;
-
-                ((EditCredentialState)DataContext).OnConfirm();
-            }
-            else
+            if (PasswordBox.Password != RepeatPasswordBox.Password && OldPasswordBox.Password == ((ChangeMPState)DataContext).OldMp)
             {
                 WrongPassTextBlock.Visibility = Visibility.Visible;
             }
-        }
+            else if (OldPasswordBox.Password != ((ChangeMPState)DataContext).OldMp && PasswordBox.Password == RepeatPasswordBox.Password)
+            {
+                WrongOldPassTextBlock.Visibility = Visibility.Visible;
+            }
+            else if (PasswordBox.Password != RepeatPasswordBox.Password && OldPasswordBox.Password != ((ChangeMPState)DataContext).OldMp)
+            {
+                WrongOldPassTextBlock.Visibility = Visibility.Visible;
+                WrongPassTextBlock.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                ((ChangeMPState)DataContext).NewMp = PasswordBox.Password;
 
-        private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            var password = ((EditCredentialState) DataContext).OldCredential.Password;
-
-            PasswordBox.Password = password;
-            RepeatPasswordBox.Password = password;
-
-            DataContextChanged -= OnDataContextChanged;
+                ((ChangeMPState)DataContext).OnConfirm();
+            }
         }
 
         private void OnPasswordChanged(object sender, RoutedEventArgs e)
         {
             if (sender is PasswordBox)
-                ((EditCredentialState) DataContext).NewCredential.Password = ((PasswordBox)sender).Password;
+            {
+                ((ChangeMPState)DataContext).NewMp = ((PasswordBox)sender).Password;
+            }
             else
             {
                 PasswordBox.Password = ((TextBox)sender).Text;
-                ((EditCredentialState) DataContext).NewCredential.Password = ((TextBox) sender).Text;
+                ((ChangeMPState)DataContext).NewMp = ((TextBox)sender).Text;
             }
 
             ShowPasswordStrength(sender);
             WrongPassTextBlock.Visibility = Visibility.Hidden;
+
         }
 
         private void OnRepeatPasswordChange(object sender, RoutedEventArgs e)
         {
-            if (!(sender is PasswordBox))
+            if (sender is PasswordBox)
+            {
+            }
+            else
             {
                 RepeatPasswordBox.Password = ((TextBox)sender).Text;
+                WrongPassTextBlock.Visibility = Visibility.Hidden;
             }
-            WrongPassTextBlock.Visibility = Visibility.Hidden;
         }
 
         private void OnRevealPassword(object sender, MouseButtonEventArgs e)
@@ -79,29 +100,22 @@ namespace Keepass2.Wizards.EditCredential
                 RepeatFakePasswordBox.Visibility = Visibility.Visible;
                 RepeatPasswordBox.Visibility = Visibility.Hidden;
                 RepeatFakePasswordBox.Text = RepeatPasswordBox.Password;
+
+                FakeOldPasswordBox.Visibility = Visibility.Visible;
+                OldPasswordBox.Visibility = Visibility.Hidden;
+                FakeOldPasswordBox.Text = OldPasswordBox.Password;
             }
             else
             {
                 FakePasswordBox.Visibility = Visibility.Hidden;
                 PasswordBox.Visibility = Visibility.Visible;
-                PasswordBox.Password = FakePasswordBox.Text;
 
                 RepeatFakePasswordBox.Visibility = Visibility.Hidden;
                 RepeatPasswordBox.Visibility = Visibility.Visible;
-                RepeatPasswordBox.Password = RepeatFakePasswordBox.Text;
+
+                FakeOldPasswordBox.Visibility = Visibility.Hidden;
+                OldPasswordBox.Visibility = Visibility.Visible;
             }
-        }
-
-        private void OnCopyPassword(object sender, MouseButtonEventArgs e)
-        {
-            Clipboard.SetText(PasswordBox.Visibility == Visibility.Hidden
-                ? PasswordBox.Password
-                : FakePasswordBox.Text);
-        }
-
-        private void OnGeneratePassword(object sender, MouseButtonEventArgs e)
-        {
-            Flyout.IsOpen = true;
         }
 
         private void ShowPasswordStrength(object sender)

@@ -264,9 +264,15 @@ namespace Keepass2
 
         private void OnSafeSettings(object sender, MouseButtonEventArgs e)
         {
+            var oldMp = ((Safe) DataContext).Password.SecureStringToString();
+            var state = new ChangeMPState{ OldMp = oldMp};
+            state.OnConfirm = () => ChangeMp(state);
+
             var frame = new Frame
             {
-                Content = new SafeSettingsPage{},
+                Content = new SafeSettingsPage(){
+                    DataContext = state
+                },
                 NavigationUIVisibility = NavigationUIVisibility.Hidden,
                 MaxWidth = 400,
                 VerticalAlignment = VerticalAlignment.Stretch
@@ -274,6 +280,15 @@ namespace Keepass2
 
             Flyout.IsOpen = true;
             Flyout.Content = frame;
+        }
+
+        private void ChangeMp(ChangeMPState state)
+        {
+            _safe.Password = ((ChangeMPState)state).NewMp.StringToSecureString();
+
+            Flyout.IsOpen = false;
+
+            EnableSaveButton();
         }
     }
 }

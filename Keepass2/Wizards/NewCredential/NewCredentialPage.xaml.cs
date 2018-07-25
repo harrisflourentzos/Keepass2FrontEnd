@@ -87,7 +87,7 @@ namespace Keepass2.Wizards.NewCredential
 
         private void OnGeneratePassword(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
+            Flyout.IsOpen = true;
         }
 
         private void ShowPasswordStrength(object sender)

@@ -83,6 +83,9 @@
       <DependentUpon>EditCredentialPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Wizards\EditCredential\EditCredentialState.cs" />
+    <Compile Include="Wizards\GenaratePassword\GeneratePasswordPage.xaml.cs">
+      <DependentUpon>GeneratePasswordPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Wizards\HelpMeChooseMP\HelpMeChooseMP.xaml.cs">
       <DependentUpon>HelpMeChooseMP.xaml</DependentUpon>
     </Compile>
@@ -119,8 +122,15 @@
     <Compile Include="Storage\Repository.cs" />
     <Compile Include="Utilities\Extensions.cs" />
     <Compile Include="Wizards\OpenSafe\OpenSafeState.cs" />
+    <Compile Include="Wizards\SafeSettings\ChangeMPPage.xaml.cs">
+      <DependentUpon>ChangeMPPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\SafeSettings\ChangeMPState.cs" />
     <Compile Include="Wizards\SafeSettings\SafeSettingsPage.xaml.cs">
       <DependentUpon>SafeSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\SafeSettings\SecuritySettingsPage.xaml.cs">
+      <DependentUpon>SecuritySettingsPage.xaml</DependentUpon>
     </Compile>
     <Page Include="MainKeepass2Window.xaml">
       <SubType>Designer</SubType>
@@ -143,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Wizards\EditCredential\EditCredentialPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Wizards\GenaratePassword\GeneratePasswordPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -182,7 +196,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Wizards\SafeSettings\ChangeMPPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Wizards\SafeSettings\SafeSettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Wizards\SafeSettings\SecuritySettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -271,6 +293,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icons\question-mark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\EditMP.png" />
+    <Resource Include="icons\securitySettings.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
