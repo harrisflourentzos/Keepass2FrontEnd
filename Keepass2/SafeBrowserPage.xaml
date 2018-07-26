@@ -231,7 +231,8 @@
                                          Margin="0,0,0,-0.4">
                     <Controls:Flyout x:Name="Flyout"
                                      IsOpen="False"
-                                     TitleVisibility="Hidden"
+                                     Header="Cancel"
+                                     TitleVisibility="Visible"
                                      Position="Right"
                                      Width="550"
                                      Theme="Accent">
