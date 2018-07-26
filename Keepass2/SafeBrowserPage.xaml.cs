@@ -67,7 +67,6 @@ namespace Keepass2
                     DataContext = state
                 },
                 NavigationUIVisibility = NavigationUIVisibility.Hidden,
-                MaxWidth = 400,
                 VerticalAlignment = VerticalAlignment.Stretch
             };
 
@@ -115,7 +114,6 @@ namespace Keepass2
                     DataContext = state
                 },
                 NavigationUIVisibility = NavigationUIVisibility.Hidden,
-                MaxWidth = 400,
                 VerticalAlignment = VerticalAlignment.Stretch
             };
 
@@ -182,7 +180,6 @@ namespace Keepass2
                     }
                 },
                 NavigationUIVisibility = NavigationUIVisibility.Hidden,
-                MaxWidth = 400,
                 VerticalAlignment = VerticalAlignment.Stretch
             };
 
@@ -294,7 +291,6 @@ namespace Keepass2
                     DataContext = state
                 },
                 NavigationUIVisibility = NavigationUIVisibility.Hidden,
-                MaxWidth = 400,
                 VerticalAlignment = VerticalAlignment.Stretch
             };
 

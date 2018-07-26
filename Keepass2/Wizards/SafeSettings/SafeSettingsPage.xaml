@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Keepass2.Wizards.SafeSettings"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="SafeSettingsPage" Width="400" Height="600">
+      Title="SafeSettingsPage" Height="600">
 
     <DockPanel>
         <StackPanel Orientation="Vertical"

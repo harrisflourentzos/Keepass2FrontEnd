@@ -7,7 +7,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EditCategoryPage"
-      Width="400"
       Height="600">
 
     <DockPanel>
@@ -18,6 +17,12 @@
                        FontWeight="Bold"
                        TextAlignment="Center"
                        Style="{StaticResource TitleTextBlock}">
+                <InlineUIContainer>
+                    <Image Margin="0,0,2,-20"
+                           Source="../../icons/editFolder.png"
+                           Width="70"
+                           Height="70"></Image>
+                </InlineUIContainer>
                 Edit Category
             </TextBlock>
             <Grid Background="{StaticResource MyBlue}">
@@ -36,12 +41,12 @@
                          Height="10"
                          Width="10"
                          Margin="5"></Ellipse>
-                <TextBlock Grid.Column="2"
+                <TextBlock TextWrapping="Wrap" Grid.Column="2"
                            Grid.Row="0"
                            Foreground="White"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Left"
-                           Margin="10">Need to fill this in.</TextBlock>
+                           Margin="10">Here, you can change the name of an already created Category folder.</TextBlock>
             </Grid>
         </StackPanel>
 

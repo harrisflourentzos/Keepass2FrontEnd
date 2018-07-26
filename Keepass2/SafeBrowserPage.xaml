@@ -50,8 +50,12 @@
                 <StackPanel>
                     <Image Source="icons/safe-box.png"
                            Margin="10"></Image>
-                    <TextBlock FontSize="20"
-                               Style="{StaticResource TitleTextBlock}">Categories</TextBlock>
+                    <TextBlock FontSize="30"
+                               Style="{StaticResource TitleTextBlock}">
+                        <InlineUIContainer>
+                            <Image Source="icons/open-folder.png" Width="50" Height="50" Margin="0,0,0,-10"></Image>
+                        </InlineUIContainer>Categories
+                    </TextBlock>
                 </StackPanel>
                 <Image x:Name="SaveButton"
                        ToolTip="Save changes made to your safe"
@@ -63,7 +67,7 @@
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
                        Style="{StaticResource ClickableImage}"></Image>
-                <Image Style="{StaticResource ClickableImage}" 
+                <Image Style="{StaticResource ClickableImage}"
                        ToolTip="Safe settings"
                        ToolTipService.ShowOnDisabled="True"
                        Source="icons/settings-work-tool.png"
@@ -71,13 +75,14 @@
                        Width="60"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Top"
-                       Margin="0,70,0,0" MouseLeftButtonDown="OnSafeSettings"></Image>
+                       Margin="0,70,0,0"
+                       MouseLeftButtonDown="OnSafeSettings"></Image>
             </Grid>
-            
+
             <DockPanel DockPanel.Dock="Bottom">
                 <StackPanel DockPanel.Dock="Left"
                             Orientation="Horizontal">
-                    <Image x:Name="DeleteCategoryButton" 
+                    <Image x:Name="DeleteCategoryButton"
                            ToolTip="Delete the selected category"
                            ToolTipService.ShowOnDisabled="True"
                            Source="icons/deleteFolder.png"
@@ -86,7 +91,7 @@
                            MouseLeftButtonDown="OnDeleteCategory"
                            Style="{StaticResource ClickableImage}"
                            VerticalAlignment="Bottom"></Image>
-                    <Image x:Name="EditCategoryButton" 
+                    <Image x:Name="EditCategoryButton"
                            ToolTip="Edit the selected category"
                            ToolTipService.ShowOnDisabled="True"
                            Source="icons/editFolder.png"
@@ -96,7 +101,8 @@
                            Style="{StaticResource ClickableImage}"
                            VerticalAlignment="Bottom"></Image>
                 </StackPanel>
-                <Image DockPanel.Dock="Right" Source="icons/addFolder.png"
+                <Image DockPanel.Dock="Right"
+                       Source="icons/addFolder.png"
                        ToolTip="Add a new category"
                        ToolTipService.ShowOnDisabled="True"
                        Width="100"
@@ -118,9 +124,15 @@
         </DockPanel>
 
         <DockPanel Grid.Column="1">
-            <TextBlock FontSize="20"
+            <TextBlock FontSize="30"
                        DockPanel.Dock="Top"
-                       Style="{StaticResource TitleTextBlock}">Credentials</TextBlock>
+                       Style="{StaticResource TitleTextBlock}"> <InlineUIContainer>
+                    <Image Source="icons/key.png"
+                           Height="40"
+                           Width="50"
+                           Margin="0,0,0,-5"></Image>
+                </InlineUIContainer>Credentials
+            </TextBlock>
 
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -221,7 +233,7 @@
                                      IsOpen="False"
                                      TitleVisibility="Hidden"
                                      Position="Right"
-                                     Width="500"
+                                     Width="550"
                                      Theme="Accent">
                     </Controls:Flyout>
                 </Controls:FlyoutsControl>
