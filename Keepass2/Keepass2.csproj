@@ -107,6 +107,9 @@
     <Compile Include="Wizards\Help\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Wizards\KeepassSettings\KeepassSettingsPage.xaml.cs">
+      <DependentUpon>KeepassSettingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Wizards\NewCategory\NewCategoryPage.xaml.cs">
       <DependentUpon>NewCategoryPage.xaml</DependentUpon>
     </Compile>
@@ -183,6 +186,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Wizards\Help\HelpPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Wizards\KeepassSettings\KeepassSettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -340,6 +347,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icons\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\settings-gears.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

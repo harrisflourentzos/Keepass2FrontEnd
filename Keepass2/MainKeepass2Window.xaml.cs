@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Keepass2.Model;
 using Keepass2.Wizards;
 using Keepass2.Wizards.Help;
+using Keepass2.Wizards.KeepassSettings;
 using MahApps.Metro.Controls;
 
 namespace Keepass2
@@ -118,6 +119,19 @@ namespace Keepass2
             var frame = new Frame
             {
                 Content = new HelpPage(),
+                NavigationUIVisibility = NavigationUIVisibility.Hidden,
+                VerticalAlignment = VerticalAlignment.Stretch
+            };
+
+            Flyout.IsOpen = true;
+            Flyout.Content = frame;
+        }
+
+        private void OnSettings(object sender, MouseButtonEventArgs e)
+        {
+            var frame = new Frame
+            {
+                Content = new KeepassSettingsPage(),
                 NavigationUIVisibility = NavigationUIVisibility.Hidden,
                 VerticalAlignment = VerticalAlignment.Stretch
             };
