@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:Keepass2.Wizards.SafeSettings"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="SecuritySettings"
-      Height="600">
+      Title="SecuritySettings">
 
     <DockPanel>
         <StackPanel Orientation="Vertical"
