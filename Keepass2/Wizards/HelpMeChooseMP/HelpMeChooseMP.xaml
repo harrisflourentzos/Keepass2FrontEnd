@@ -52,7 +52,7 @@
                            Foreground="White"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Left"
-                           Margin="10">Need to fill this in.</TextBlock>
+                           Margin="10">Remains to be implemented when connected to the backend...</TextBlock>
             </Grid>
         </StackPanel>
     </Grid>
