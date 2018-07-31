@@ -24,7 +24,7 @@
                            Width="70"
                            Height="70"></Image>
                 </InlineUIContainer>
-                New Category
+                New Folder
             </TextBlock>
             <Grid Background="{StaticResource MyBlue}">
                 <Grid.ColumnDefinitions>
@@ -49,7 +49,7 @@
                            VerticalAlignment="Center"
                            HorizontalAlignment="Left"
                            Margin="10">Create a new <Run FontWeight="Bold"
-                                                         Foreground="Black">Category</Run>
+                                                         Foreground="Black">Folder</Run>
                     <InlineUIContainer>
                         <Image Margin="0,0,2,-5"
                                Source="../../icons/folder.png"
@@ -120,7 +120,7 @@
                        MaxWidth="300"
                        Foreground="{StaticResource MyBlue}"
                        Background="{x:Null}">
-                Category Name:
+                Folder Name:
             </TextBlock>
             <TextBox x:Name="CategoryName"
                      Margin="10"

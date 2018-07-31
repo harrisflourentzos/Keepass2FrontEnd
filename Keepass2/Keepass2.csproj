@@ -104,6 +104,9 @@
     <Compile Include="Wizards\HelpMeChooseMP\HelpMeChooseMP.xaml.cs">
       <DependentUpon>HelpMeChooseMP.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Wizards\Help\HelpPage.xaml.cs">
+      <DependentUpon>HelpPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Wizards\NewCategory\NewCategoryPage.xaml.cs">
       <DependentUpon>NewCategoryPage.xaml</DependentUpon>
     </Compile>
@@ -176,6 +179,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Wizards\HelpMeChooseMP\HelpMeChooseMP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Wizards\Help\HelpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -314,7 +321,7 @@
     <Resource Include="icons\securitySettings.png" />
   </ItemGroup>
   <ItemGroup>
-    <SplashScreen Include="icons\splashScreen.png" />
+    <Resource Include="icons\splashScreen.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icons\keepass2.png" />
@@ -330,6 +337,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\help.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

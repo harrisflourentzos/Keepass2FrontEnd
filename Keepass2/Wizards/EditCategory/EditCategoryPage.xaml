@@ -23,7 +23,7 @@
                            Width="70"
                            Height="70"></Image>
                 </InlineUIContainer>
-                Edit Category
+                Edit Folder
             </TextBlock>
             <Grid Background="{StaticResource MyBlue}">
                 <Grid.ColumnDefinitions>
@@ -46,7 +46,7 @@
                            Foreground="White"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Left"
-                           Margin="10">Here, you can change the name of an already created Category folder.</TextBlock>
+                           Margin="10">Here, you can change the name of an already created folder.</TextBlock>
             </Grid>
         </StackPanel>
 
@@ -85,7 +85,7 @@
                        MaxWidth="300"
                        Foreground="{StaticResource MyBlue}"
                        Background="{x:Null}">
-                Category Name:
+                Folder Name:
             </TextBlock>
             <TextBox x:Name="CategoryName"
                      Text="{Binding OldCategory}"

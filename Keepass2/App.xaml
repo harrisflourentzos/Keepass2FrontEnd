@@ -16,7 +16,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
                 <ResourceDictionary>
                     <SolidColorBrush x:Key="MyBlue"
-                                     Color="#3385FF"></SolidColorBrush>
+                                     Color="#41b1e1"></SolidColorBrush>
                 </ResourceDictionary>
                 <ResourceDictionary>
                     <Style x:Key="TitleTextBlock"

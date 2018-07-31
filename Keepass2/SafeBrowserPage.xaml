@@ -54,7 +54,7 @@
                                Style="{StaticResource TitleTextBlock}">
                         <InlineUIContainer>
                             <Image Source="icons/open-folder.png" Width="50" Height="50" Margin="0,0,0,-10"></Image>
-                        </InlineUIContainer>Categories
+                        </InlineUIContainer> Folders
                     </TextBlock>
                 </StackPanel>
                 <Image x:Name="SaveButton"
@@ -83,7 +83,7 @@
                 <StackPanel DockPanel.Dock="Left"
                             Orientation="Horizontal">
                     <Image x:Name="DeleteCategoryButton"
-                           ToolTip="Delete the selected category"
+                           ToolTip="Delete the selected folder"
                            ToolTipService.ShowOnDisabled="True"
                            Source="icons/deleteFolder.png"
                            Width="50"
@@ -92,7 +92,7 @@
                            Style="{StaticResource ClickableImage}"
                            VerticalAlignment="Bottom"></Image>
                     <Image x:Name="EditCategoryButton"
-                           ToolTip="Edit the selected category"
+                           ToolTip="Edit the selected folder"
                            ToolTipService.ShowOnDisabled="True"
                            Source="icons/editFolder.png"
                            Width="50"
@@ -103,7 +103,7 @@
                 </StackPanel>
                 <Image DockPanel.Dock="Right"
                        Source="icons/addFolder.png"
-                       ToolTip="Add a new category"
+                       ToolTip="Add a new folder"
                        ToolTipService.ShowOnDisabled="True"
                        Width="100"
                        Height="100"

@@ -13,62 +13,91 @@
 
     <Grid>
 
-        <TabControl Name="SafeBrowser"
-                    ItemsSource="{Binding}"
-                    SelectionChanged="OnTabSelected">
-            <TabControl.Resources>
-                <DataTemplate x:Key="TabHeader"
-                              DataType="TabItem">
-                    <DockPanel>
-                        <Image Source="icons/safe-box.png"
-                               Height="30"
-                               Width="30"
-                               Margin="5"></Image>
-                        <Button Name="btnDelete"
-                                DockPanel.Dock="Right"
-                                Margin="5,0,0,0"
-                                Padding="0"
-                                Click="OnTabDeleted"
-                                Height="17"
-                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}}"
-                                Background="White">
-                            <Image Source="icons/delete.png"
-                                   Height="15"
-                                   Width="15"></Image>
-                        </Button>
-                        <TextBlock Background="{x:Null}"
-                                   Foreground="{StaticResource MyBlue}"
-                                   FontWeight="Bold"
-                                   VerticalAlignment="Center"
-                                   Text="{Binding RelativeSource={RelativeSource AncestorType=TabItem }, Path=Header}" />
-                    </DockPanel>
-                </DataTemplate>
+        <DockPanel>
+            <StackPanel FlowDirection="RightToLeft"
+                        Orientation="Horizontal"
+                        DockPanel.Dock="Top">
+                <Image Margin="10,5,0,5" FlowDirection="LeftToRight"
+                       Source="icons/question-mark.png"
+                       Height="70"
+                       Width="70"
+                       Style="{StaticResource ClickableImage}" MouseLeftButtonDown="OnHelp"></Image>
+                <Image Margin="10,5,0,5" FlowDirection="LeftToRight"
+                       Source="icons/settings-work-tool.png"
+                       Height="70"
+                       Width="70"
+                       Style="{StaticResource ClickableImage}"></Image>
+            </StackPanel>
 
-                <Style TargetType="TabItem">
-                    <Setter Property="BorderBrush"
-                            Value="{StaticResource MyBlue}"></Setter>
-                    <Setter Property="Background"
-                            Value="Gray"></Setter>
-                </Style>
+            <TabControl Name="SafeBrowser"
+                        ItemsSource="{Binding}"
+                        SelectionChanged="OnTabSelected">
+                <TabControl.Resources>
+                    <DataTemplate x:Key="TabHeader"
+                                  DataType="TabItem">
+                        <DockPanel>
+                            <Image Source="icons/safe-box.png"
+                                   Height="30"
+                                   Width="30"
+                                   Margin="5"></Image>
+                            <Button Name="btnDelete"
+                                    DockPanel.Dock="Right"
+                                    Margin="5,0,0,0"
+                                    Padding="0"
+                                    Click="OnTabDeleted"
+                                    Height="17"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type TabItem}}}"
+                                    Background="White">
+                                <Image Source="icons/delete.png"
+                                       Height="15"
+                                       Width="15"></Image>
+                            </Button>
+                            <TextBlock Background="{x:Null}"
+                                       Foreground="Black"
+                                       FontWeight="Bold"
+                                       VerticalAlignment="Center"
+                                       Text="{Binding RelativeSource={RelativeSource AncestorType=TabItem }, Path=Header}" />
+                        </DockPanel>
+                    </DataTemplate>
 
-                <Style TargetType="TextBox">
-                    <Setter Property="VerticalAlignment"
-                            Value="Stretch"></Setter>
-                    <Setter Property="HorizontalAlignment"
-                            Value="Stretch"></Setter>
-                    <Setter Property="AcceptsReturn"
-                            Value="True"></Setter>
-                    <Setter Property="TextWrapping"
-                            Value="WrapWithOverflow"></Setter>
-                    <Setter Property="MaxLines"
-                            Value="5000"></Setter>
-                    <Setter Property="ScrollViewer.VerticalScrollBarVisibility"
-                            Value="Auto"></Setter>
-                    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
-                            Value="Auto"></Setter>
-                </Style>
-            </TabControl.Resources>
-        </TabControl>
+                    <Style TargetType="TabItem">
+                        <Setter Property="BorderBrush"
+                                Value="{StaticResource MyBlue}"></Setter>
+                        <Setter Property="Background"
+                                Value="{StaticResource MyBlue}"></Setter>
+                    </Style>
+
+                    <Style TargetType="TextBox">
+                        <Setter Property="VerticalAlignment"
+                                Value="Stretch"></Setter>
+                        <Setter Property="HorizontalAlignment"
+                                Value="Stretch"></Setter>
+                        <Setter Property="AcceptsReturn"
+                                Value="True"></Setter>
+                        <Setter Property="TextWrapping"
+                                Value="WrapWithOverflow"></Setter>
+                        <Setter Property="MaxLines"
+                                Value="5000"></Setter>
+                        <Setter Property="ScrollViewer.VerticalScrollBarVisibility"
+                                Value="Auto"></Setter>
+                        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
+                                Value="Auto"></Setter>
+                    </Style>
+                </TabControl.Resources>
+            </TabControl>
+        </DockPanel>
+
+        <Controls:FlyoutsControl Grid.ColumnSpan="2"
+                                 Margin="0,0,0,-0.4">
+            <Controls:Flyout x:Name="Flyout"
+                             IsOpen="False"
+                             Header="Cancel"
+                             TitleVisibility="Visible"
+                             Position="Right"
+                             Width="550"
+                             Theme="Accent">
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
 
     </Grid>
 </Controls:MetroWindow>

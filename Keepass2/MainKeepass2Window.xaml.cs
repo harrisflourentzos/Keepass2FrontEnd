@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Navigation;
 using Keepass2.Model;
 using Keepass2.Wizards;
+using Keepass2.Wizards.Help;
 using MahApps.Metro.Controls;
 
 namespace Keepass2
@@ -19,6 +22,10 @@ namespace Keepass2
 
         public MainKeepass2Window()
         {
+            SplashScreen splash = new SplashScreen("icons/splashScreen.png");
+            splash.Show(true);
+            Thread.Sleep(1000);
+
             InitializeComponent();
 
             _tabItems.Add(_tabAdd);
@@ -103,6 +110,20 @@ namespace Keepass2
             {
                 AddEmptyTab();
             }
+        }
+
+        private void OnHelp(object sender, MouseButtonEventArgs e)
+        {
+
+            var frame = new Frame
+            {
+                Content = new HelpPage(),
+                NavigationUIVisibility = NavigationUIVisibility.Hidden,
+                VerticalAlignment = VerticalAlignment.Stretch
+            };
+
+            Flyout.IsOpen = true;
+            Flyout.Content = frame;
         }
     }
 }
