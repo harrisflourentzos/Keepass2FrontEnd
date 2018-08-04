@@ -111,21 +111,34 @@ namespace Keepass2.Wizards.EditCredential
             characters = sender is PasswordBox ? PasswordBox.Password.Length : FakePasswordBox.Text.Length;
 
             PasswordRectangle.Width = 8 * characters;
-            PasswordRectangle.Opacity = 0.7;
+            PasswordRectangle.Opacity = 1;
             CharacterTextBlock.Text = "Characters: " + characters;
 
-            if (characters <= 10)
+            if (characters == 0)
+            {
+                PasswordStrengthTextBlock.Visibility = Visibility.Hidden;
+            }
+            else if (characters <= 10)
             {
                 PasswordRectangle.Fill = new SolidColorBrush(Colors.Red);
+                PasswordStrengthTextBlock.Text = "Weak";
+                PasswordStrengthTextBlock.Foreground = new SolidColorBrush(Colors.Red);
+                PasswordStrengthTextBlock.Visibility = Visibility.Visible;
 
             }
             else if (characters > 10 && characters <= 20)
             {
-                PasswordRectangle.Fill = new SolidColorBrush(Colors.Yellow);
+                PasswordRectangle.Fill = new SolidColorBrush(Colors.Orange);
+                PasswordStrengthTextBlock.Text = "Medium";
+                PasswordStrengthTextBlock.Foreground = new SolidColorBrush(Colors.Orange);
+                PasswordStrengthTextBlock.Visibility = Visibility.Visible;
             }
             else
             {
-                PasswordRectangle.Fill = new SolidColorBrush(Colors.Green);
+                PasswordRectangle.Fill = new SolidColorBrush(Colors.LawnGreen);
+                PasswordStrengthTextBlock.Text = "Strong";
+                PasswordStrengthTextBlock.Foreground = new SolidColorBrush(Colors.LawnGreen);
+                PasswordStrengthTextBlock.Visibility = Visibility.Visible;
             }
         }
     }
