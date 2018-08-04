@@ -17,16 +17,22 @@
             <StackPanel FlowDirection="RightToLeft"
                         Orientation="Horizontal"
                         DockPanel.Dock="Top">
-                <Image Margin="10,5,0,5" FlowDirection="LeftToRight"
+                <Image Margin="10,5,0,5"
+                       FlowDirection="LeftToRight"
+                       ToolTip="How to use KeePass2"
                        Source="icons/question-mark.png"
                        Height="70"
                        Width="70"
-                       Style="{StaticResource ClickableImage}" MouseLeftButtonDown="OnHelp"></Image>
-                <Image Margin="10,5,0,5" FlowDirection="LeftToRight"
+                       Style="{StaticResource ClickableImage}"
+                       MouseLeftButtonDown="OnHelp"></Image>
+                <Image Margin="10,5,0,5"
+                       FlowDirection="LeftToRight"
                        Source="icons/settings-gears.png"
+                       ToolTip="KeePass2 Settings"
                        Height="70"
                        Width="70"
-                       Style="{StaticResource ClickableImage}" MouseLeftButtonDown="OnSettings"></Image>
+                       Style="{StaticResource ClickableImage}"
+                       MouseLeftButtonDown="OnSettings"></Image>
             </StackPanel>
 
             <TabControl Name="SafeBrowser"
